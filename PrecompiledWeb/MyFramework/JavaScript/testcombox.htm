@@ -1,0 +1,111 @@
+<html>
+<head>
+<script>
+	var _comboxUserInput = "";
+	var _comboxHotelData = [];
+	var _comboxUserEvent = false;
+	
+	var __HotelComboxShadow=document.createElement("DIV");
+
+  // 设置层的相关属性
+  __HotelComboxShadow.style.display="none";
+  __HotelComboxShadow.style.position="absolute";
+  __HotelComboxShadow.zIndex=99999;
+  __HotelComboxShadow.style.backgroundColor="white";
+
+  // 生成iframe
+  var __HotelComboxShadowFrame=document.createElement("IFRAME");
+  __HotelComboxShadowFrame.name="__HotelComboxShadowIFrame";
+
+  __HotelComboxShadow.appendChild(__HotelComboxShadowFrame);
+
+  document.body.appendChild(__HotelComboxShadow);
+
+  // 创建层
+  var _HotelComboxList=document.createElement("DIV");
+  _HotelComboxList.style.display="none";
+  _HotelComboxList.zIndex=99999;
+  _HotelComboxList.style.position="absolute";
+  
+  
+  document.body.appendChild(_HotelComboxList);
+	
+	function HotelComboxShow(cityObj,inputObj,idObj) {
+		if(!_comboxUserEvent) return;
+		
+		_getHotelMatch(cityObj,inputObj);
+		
+		if(_comboxHotelData.length==0) return;
+		
+		_setHotelComboxData();
+
+	}
+
+	function _setHotelComboxData()	{
+		var HotelListHtml	= ""+
+			"<table cellspacing=\"0\" bordercolordark=\"#ffffff\" cellpadding=\"2\" rules=\"all\" bordercolorlight=\"#aaaaaa\" style=\"border:1px solid;font-size:12px\">";
+		
+		for (var i=0;i<_comboxHotelData.length;i++) {
+			HotelListHtml+= ""+
+				"<tr style=\"background-color: #E2E5D7\" align=\"center\">"+
+					"<td onclick=\"_DecMonth();\" style=\"cursor:hand\" "+ MouseEvent +" >&lt;</td>"+
+				"</tr>"+
+				"<tr style=\"background-color: #E3EBDF;cursor:defalut;\" align=\"center\">"+
+					"<td width=\"13\">日</td>"+
+					"<td width=\"13\">一</td>"+
+					"<td width=\"13\">二</td>"+
+					"<td width=\"13\">三</td>"+
+					"<td width=\"13\">四</td>"+
+					"<td width=\"13\">五</td>"+
+					"<td width=\"13\">六</td>"+
+				"</tr>";							
+			
+
+		var AddDay = 1;
+		
+		// 开始
+		while( AddDay <= MaxDay )
+		{
+			MonthHtml += "<tr style=\"background-color: #ECEAF2\" align=\"center\">";
+			
+			for( var i=0; i<7; i++ )
+			{
+			
+				if( ( BeginWeek == i || AddDay != 1 ) && AddDay <= MaxDay )
+				{
+					var FontColor = "";
+					if( ThisCalendarYear == ToDayYear && ThisCalendarMonth == ToDayMonth && ToDayDay == AddDay ) FontColor = "color:red;"
+					MonthHtml += "<td onclick=\"_SetSelectDateByObj(this)\" style=\"cursor:hand;"+ FontColor +"\" "+ MouseEvent +" >"+ AddDay +"</td>";
+					AddDay ++;
+				}
+				else
+				{
+					MonthHtml += "<td>&nbsp;</td>";
+				}
+				
+			}
+			MonthHtml += "</tr>";
+		}
+		
+		MonthHtml	+=	"<tr style=\"background-color: #ECEAF2;cursor:defalut;\" align=\"center\">"+
+							"<td colspan=\"5\" style=\"cursor:hand;\" onclick=\"_SetSelectDateByValue('"+ ToDay +"')\" "+ MouseEvent +">今日: "+ ToDay +"</td>"+
+							"<td colspan=\"2\" style=\"cursor:hand;\" onclick=\"_SetSelectDateByValue('')\" "+ MouseEvent +" >清空</td>"+
+						"</tr>";
+		
+		// 结束标志
+		MonthHtml += "</table>";
+		
+		return MonthHtml;
+	}
+</script>
+</head>
+<body>
+	<form name='aa'>
+		<select name='as'>
+			<option value="asdfasfdasdf">asdfasdfasadasfdaqewfasdfwaf</option>
+		</select>
+		<input type="text" name='ab' onfocus="HotelComboxFocus(this)">
+		<input type="button" value="click here" onclick="GetMessage()">
+	</form>
+</body>
+</html>

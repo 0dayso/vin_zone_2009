@@ -1,0 +1,44 @@
+<html>
+<head>
+<script>
+function GetMessage() {
+	var calendarTable=document.createElement("TABLE");
+  calendarTable.cellSpacing="0";
+  calendarTable.cellPadding="2";
+  calendarTable.rules="all";
+  calendarTable.borderColorLight="#aaaaaa";
+  calendarTable.style.border=1;
+  //calendarTable.style.height="100";
+  calendarTable.style.fontSize="12px";
+ // calendarTable.style.filter ="progid:DXImageTransform.Microsoft.Shadow(color=#999999,direction=135,strength=7)";
+  
+  var calendarTableBody=document.createElement("TBODY");
+  calendarTable.appendChild(calendarTableBody);
+  
+  for (var i=0;i<3;i++) {
+  	var calendarTableRows=document.createElement("TR");
+  	calendarTableBody.appendChild(calendarTableRows);
+  	for (var j=0;j<5;j++) {
+  		var calendarTableCells=document.createElement("TD");
+  		calendarTableRows.appendChild(calendarTableCells);
+  		calendarTableCells.id="TD"+i+j;
+  		calendarTableCells.innerText="(("+i+j+"))";
+  		var eventWrapper = function(obj)
+      {
+           alert(obj.elements.length);
+      }
+  		calendarTableCells.onclick = eventWrapper(document.forms[0]);
+  	}     		
+  }
+  
+  document.body.appendChild(calendarTable);
+  alert('here');
+}
+</script>
+</head>
+<body>
+	<form name='aa'>
+		<input type="button" value="click here" onclick="GetMessage()">
+	</form>
+</body>
+</html>

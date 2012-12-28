@@ -1,0 +1,582 @@
+<!--
+Copyright (c) 2003, Khoi Pham <khoi@progstudios.com>
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+* Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the
+distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<PUBLIC:COMPONENT tagName="COMBOBOX">
+	<PUBLIC:DEFAULTS viewLinkContent="true" viewInheritStyle="true" viewMasterTab="true" tabStop="true" canHaveHTML="true"/>
+	<PUBLIC:PROPERTY name="selectedIndex" get="getSelectedIndex" put="putSelectedIndex" id="_selectedIndex" />
+	<PUBLIC:PROPERTY name="value" get="getValue" put="putValue" id="_value" />
+	<PUBLIC:PROPERTY name="options" get="getoptions" id="_options" />
+	<PUBLIC:PROPERTY name="errormessage" get="getErrorMessage" put="putErrorMessage" id="_errorMessage"/>
+	<PUBLIC:PROPERTY name="parentformid" get="getParentFormID" put="putParentFormID" id="_parentFormID" />
+	<PUBLIC:PROPERTY name="autoValidate" get="getAutoValidate" put="putAutoValidate" id="_autoValidate"/>
+	<PUBLIC:PROPERTY name="enabled" get="getEnabled" put="putEnabled" id="_enabled"/>
+	<PUBLIC:PROPERTY name="ResourcesDirectory" get="getResourcesDirectory" put="putResourcesDirectory" id="_resourcesDirectory"/>
+	<PUBLIC:PROPERTY name="size" get="getSize" put="putSize" id="_Size"/>
+	<PUBLIC:ATTACH event=ondocumentready onevent="Combobox_DocumentReady()" />
+	<PUBLIC:ATTACH EVENT="onclick" FOR="document" HANDLER="Document_Click" />
+	<PUBLIC:ATTACH EVENT="onblur" FOR="document" onevent="Combobox_Blur()" />
+	<PUBLIC:EVENT name="onkeypress" id="_keyPressEvt" />
+	<PUBLIC:EVENT name="onchange" id="_changeEvt" />
+	<PUBLIC:METHOD NAME="isValid" INTERNALNAME="isValid" />
+	<PUBLIC:METHOD NAME="repaint" INTERNALNAME="repaint" />
+	<SCRIPT language="JScript">
+	  var optListItems;
+	  var parentFormID;
+	  var resourcesDirectory = '/webctrl_client/progstudios/1_1/';
+	  var selectedIndex = -1;
+	  var hoverIndex = -1;
+	  var bAutoValidate = false;
+	  var errorMessage = '';
+	  var sValue = '';
+	  var iSize = 20;
+	  var bEnabled = true;
+	  /* -- External Object Variables -- */
+	  var DropDown, ListItems;
+	  var ValueField;
+	  
+	  /* -- Property Methods -- */
+	  function getAutoValidate() {
+			return bAutoValidate;
+	  }
+	  function putAutoValidate(val) {
+			bAutoValidate = val;
+	  }
+	  
+	  function getEnabled() {
+			return bEnabled;
+	  }
+	  function putEnabled(val) {
+			bEnabled = (val.toUpperCase() != 'FALSE');
+			textField.readOnly = val;
+			textField.disabled = val;
+	  }
+	  
+	  function getErrorMessage() {
+			return errorMessage;
+	  }
+	  function putErrorMessage(val) {
+			errorMessage = val;
+	  }
+	  
+		function getSelectedIndex() {
+			return selectedIndex;
+		}
+		function putSelectedIndex(val) {
+			if (val >= options.length) {
+				throw new Error("Index Out of Bounds");
+			} else {
+				if (selectedIndex > -1)
+					blurListItem(selectedIndex);
+				selectedIndex=val;
+				takeValueFromDropDown();
+				_selectedIndex.fireChange();
+				_value.fireChange();
+			}
+		}
+		
+		function getValue() {
+			return ValueField.value;
+		}
+		
+		function putValue(val) {
+			sValue = val;
+			if (ValueField != null) {
+				ValueField.value = val;
+				_value.fireChange();
+				var bMatch = false;
+				for(var i=0;i<options.length;i++) {
+					if (options[i].value.toUpperCase() == sValue.toUpperCase()) {
+						selectedIndex=i;
+						_selectedIndex.fireChange();
+						textField.value = options[i].text;
+						ValueField.value = options[i].value;
+						return;
+					}
+				}
+				textField.value = sValue;
+				ValueField.value = sValue;
+				selectedIndex=-1;
+				_selectedIndex.fireChange();
+			}
+		}
+		
+		function getoptions() {
+			return optListItems.options;
+		}
+		
+		function getParentFormID() {
+			return parentFormID;
+		}
+		function putParentFormID(val) {
+			parentFormID = val;
+		}
+		
+		function getResourcesDirectory() {
+			return resourcesDirectory;
+		}
+		
+		function putResourcesDirectory(val) {
+			resourcesDirectory = val;
+		}
+		
+		function getSize() {
+			return iSize;
+		}
+		
+		function putSize(val) {
+			iSize = val;
+		}
+		/* -- External Event Handlers  -- */
+	  function Document_Click(){
+	    try{
+				if (window.event.srcElement.id == this.id)
+					return;
+	      if (DropDown.style.display = 'block'){
+					imgArrow.src = resourcesDirectory + "images/down_arrow.gif";
+					DropDown.style.display = 'none';
+					tblCombobox_MouseOut();
+	      }
+	    }catch(err){ err.description+='>doOnClick';throw err; }	  
+	  }
+	  	  
+		function ListItemCell_Click(index) {
+			hoverIndex = index;
+			selectedIndex = index;
+			textField.value = this.innerText;
+			textField.select();
+			if (ValueField.value != this.value) {
+				ValueField.value = this.value;
+				_changeEvt.fire(createEventObject());
+			}
+		}
+		
+		function ListItemCell_MouseOver(index) {
+			if (selectedIndex > -1)
+				blurListItem(selectedIndex);
+			selectListItem(index);
+			hoverIndex = index;
+		}
+		
+		function ListItemCell_MouseOut(index) {
+			blurListItem(index);
+			hoverIndex = -1;
+		}
+		function DropDown_MouseWheel() {
+			window.event.cancelBubble = true;
+			var iItemsLength = ListItems.cells.length-1;
+			var iItemTop = getPixelTop(ListItems.cells[iItemsLength],"DIV") + ListItems.cells[iItemsLength].offsetHeight + 1;
+			if (((iItemTop-DropDown.scrollTop)<=150 && event.wheelDelta <= 0)||(DropDown.scrollTop <=1 && event.wheelDelta >=0))
+				event.returnValue=false;
+		}
+		/* -- Internal Event Handlers  -- */
+		function tblCombobox_MouseOver(){
+			try {
+				if (DropDown.style.display != 'block') {
+					textFieldCell.className = 'clsTextFieldCell_hover';
+					dropDownArrowCell.className = 'clsDropDownCell_hover';
+				}
+			} catch(err) { err.description+='>tblCombobox_MouseOver';throw err;}
+		}
+		
+		function tblCombobox_MouseOut() {
+			try {
+				if (DropDown.style.display != 'block') {
+					textFieldCell.className = 'clsTextFieldCell';
+					dropDownArrowCell.className = 'clsDropDownCell';
+				}
+			} catch(err) { err.description+='>tblCombobox_MouseOut';throw err;}
+		}
+		
+		function textField_Focus() {
+			try {textField.select();} catch (e) {}
+		}
+		
+		function textField_KeyDown() {
+			if (DropDown.style.display != 'block')
+				hoverIndex = selectedIndex;
+			switch (event.keyCode) {
+				case 40: // Down Arrow
+					if (hoverIndex < optListItems.options.length-1) {
+						blurListItem(hoverIndex);
+						hoverIndex += 1;
+						var iItemTop = getPixelTop(ListItems.cells[hoverIndex],"DIV") + ListItems.cells[hoverIndex].offsetHeight + 1;
+						if (iItemTop >= 150)
+							DropDown.scrollTop = DropDown.scrollTop + ListItems.cells[hoverIndex].offsetHeight + 1;
+						selectedIndex = hoverIndex;
+						takeValueFromDropDown();
+						_changeEvt.fire(createEventObject());
+					}
+					break;
+				case 38: // Up Arrow
+					if (hoverIndex > 0) {
+						blurListItem(hoverIndex);
+						hoverIndex -= 1;
+						if (hoverIndex > -1)
+							DropDown.scrollTop = getPixelTop(ListItems.cells[hoverIndex],"DIV")-1;
+						selectedIndex = hoverIndex;
+						takeValueFromDropDown();
+						_changeEvt.fire(createEventObject());
+					}
+					break;
+				case 13:
+					if (hoverIndex > -1 && DropDown.style.display == 'block') {
+						if (selectedIndex != hoverIndex) {
+							selectedIndex = hoverIndex;
+							_selectedIndex.fireChange();
+						}
+						var item = ListItems.cells[selectedIndex];
+						textField.value = item.innerText;
+						textField.select();
+						if (ValueField.value != item.value)  {
+							ValueField.value = item.value;
+							_value.fireChange();
+							_changeEvt.fire(createEventObject());
+						}
+						imgArrow.src = resourcesDirectory + "images/down_arrow.gif";
+						DropDown.style.display = 'none';
+						tblCombobox_MouseOut();
+						return;
+					}
+			}
+			if (selectedIndex > -1 && event.keyCode != 13)
+				selectListItem(selectedIndex);
+		}
+		function textField_KeyPress() {
+			var realevent = window.event;
+			var evt = createEventObject();
+			evt.altKey = realevent.altKey;
+			evt.altLeft = realevent.altLeft;
+			evt.cancelBubble = realevent.cancelBubble;
+			evt.returnValue = realevent.returnValue;
+			evt.ctrlKey = realevent.ctrlKey;
+			evt.ctrlLeft = realevent.ctrlLeft;
+			evt.keyCode = realevent.keyCode;
+			evt.repeat = realevent.repeat;
+			evt.shiftKey = realevent.shiftKey;
+			evt.shiftLeft = realevent.shiftLeft;
+			evt.type = realevent.type;
+			evt.srcElement = element;
+			_keyPressEvt.fire(evt);
+			realevent.cancelBubble = evt.cancelBubble;
+			realevent.returnValue = evt.returnValue;
+			realevent.keyCode = evt.keyCode;
+		}
+		
+		function textField_KeyUp() {
+			if (event.keyCode < 0x2f && event.keyCode != 32)
+				return;
+			//if (hoverIndex > -1 && event.keyCode)
+			var text = textField.value;
+			var utext = text.toUpperCase();
+			var bMatch = false;
+			blurListItem(selectedIndex);
+			//blurListItem(hoverIndex);
+			for(var i=0;i<options.length;i++) {
+				var newtxt = options[i].text;
+				var uopt = newtxt.toUpperCase();
+				if (uopt != utext && 0 == uopt.indexOf(utext)) {
+					bMatch = true;
+					var txtrange = event.srcElement.createTextRange();
+					event.srcElement.value = text + newtxt.substr(text.length);
+					txtrange.moveStart("character", text.length);
+					txtrange.select();
+					selectedIndex = i;
+					hoverIndex = i;
+					DropDown.scrollTop = getPixelTop(ListItems.cells[hoverIndex],"DIV")-1;
+					selectListItem(i);
+					break;
+				} else if (uopt == utext) {
+					bMatch=true;
+					selectedIndex = i;
+					hoverIndex = i;
+					DropDown.scrollTop = getPixelTop(ListItems.cells[hoverIndex],"DIV")-1;
+					selectListItem(i);
+				}
+			}
+			if (!bMatch) {
+				if (ValueField.value != textField.value)
+					_value.fireChange();
+				if (selectedIndex == -1)
+					_selectedIndex.fireChange();
+				selectedIndex = -1;
+				ValueField.value = textField.value;
+			}
+		}
+		
+		/* -- Element Event Handlers -- */
+		function Combobox_DocumentReady() {
+			imgArrow.src = resourcesDirectory + "images/down_arrow.gif";
+			element.innerHTML = "<select>" + element.innerHTML + "</select>";
+			optListItems = element.firstChild;
+			selectedIndex = -1;
+			//optListItems.innerHTML = element.innerHTML;
+			tblCombobox.attachEvent("onmouseover", tblCombobox_MouseOver);
+			tblCombobox.attachEvent("onmouseout", tblCombobox_MouseOut);
+	    DropDown = element.document.createElement('<div UNSELECTABLE=on style="background-color:white;display:block;position:absolute;overflow-y:auto;border:solid 1px gray;cursor:hand;">');
+	    DropDown.attachEvent("onmousewheel",DropDown_MouseWheel);
+	    element.document.body.appendChild(DropDown);
+	    createListItems();
+	    dropDownArrowCell.attachEvent("onclick",fnToggleDropDown);
+			textField.attachEvent("onfocus",textField_Focus);
+			textField.attachEvent("onkeyup",textField_KeyUp);
+			textField.attachEvent("onkeydown",textField_KeyDown);
+			textField.attachEvent("onkeypress", textField_KeyPress);
+			textField.attachEvent("onchange", emitChangeEvent);
+			this.attachEvent("onblur", ComboBox_Blur);
+			textField.size = iSize;
+			
+			var formElement = element.document.all[parentFormID];
+			ValueField = element.document.createElement("<input type='hidden'>");
+			ValueField.name = element.name;
+			formElement.appendChild(ValueField);
+			putValue(sValue);
+		}
+		function ComboBox_Blur() {
+			var bIsDirty = false;
+			blurListItem(selectedIndex);	
+			// Handle Validation
+			if (bAutoValidate && !isValid()) {
+				bIsDirty = (ValueField.value !='');
+				if (errorMessage != '')
+					alert(errorMessage);
+				textField.value = '';
+				ValueField.value = '';
+				blurListItem(selectedIndex);
+				selectedIndex = -1;
+			}
+			
+			if (textField.value != '') {
+				bIsDirty = takeValueFromDropDown();
+			} else {
+				bIsDirty = (ValueField.value !='');
+				ValueField.value = '';
+				selectedIndex = -1;
+			}
+			
+			//fire change event if element is dirty
+			if (bIsDirty) {
+				_changeEvt.fire(createEventObject());
+			}
+			
+			// Hide DropDown on blur
+			if (DropDown.style.display == 'block')  {
+				DropDown.style.display = 'none';
+				imgArrow.src = resourcesDirectory + "images/down_arrow.gif";
+				tblCombobox_MouseOut();
+			}
+		}
+		
+		function emitChangeEvent() {
+			_changeEvt.fire(createEventObject());
+		}
+		/* -- Element Methods  -- */
+		function isValid() {
+			for(var i=0;i<this.options.length;i++) {
+				if (this.options[i].text.toUpperCase() == textField.value.toUpperCase()) {
+					return true;
+				}
+			}
+			return false;
+		}
+		function repaint() {
+			selectedIndex=-1;
+			createListItems();
+			for (var i=0; i < optListItems.options.length; i++) {
+				if (textField.value == optListItems.options[i].text) {
+					selectedIndex=i;
+					ValueField.value = optListItems.options[i].value;
+				}
+			}
+		}
+		/* -- Private Methods  -- */
+		function createListItems() {
+			DropDown.style.display = 'block';
+			ListItems = element.document.createElement("<table cellspacing=1 width='100%' border=0 UNSELECTABLE=on>");
+			if (optListItems.options.length > 0) {
+				for (var i=0; i < optListItems.options.length; i++) {
+					var ListItemRow = element.document.createElement("tr");
+					var ListItemCell = element.document.createElement("<td UNSELECTABLE=on onmouseout='doMouseOut("+i+")' onmouseover='doMouseOver("+i+")' onclick='doClick("+i+")' style='font-size:8pt;font-family:tahoma;font-weight:normal;'>");
+					ListItemCell.value = optListItems.options[i].value;
+					ListItemCell.innerText = optListItems.options[i].text;
+					ListItemCell.className = 'clsListItem';
+					ListItemRow.appendChild(ListItemCell);
+					ListItems.appendChild(ListItemRow);
+					if (optListItems.options[i].selected)
+						selectedIndex = i;
+				}
+			} else {
+					var ListItemRow = element.document.createElement("tr");
+					var ListItemCell = element.document.createElement("<td UNSELECTABLE=on style='background-color:Highlight;' onclick='setValue("+i+")' style='font-size:8pt;font-family:tahoma;font-weight:normal;'>");
+					ListItemCell.innerHTML = '<img src="'+resourcesDirectory+'images/dot.gif" height=10 width=10/>';
+					ListItemRow.appendChild(ListItemCell);
+					ListItems.appendChild(ListItemRow);
+			}
+			
+			DropDown.innerHTML = ListItems.outerHTML;
+			ListItems = DropDown.firstChild;
+			if (ListItems.offsetHeight > 150) {
+				DropDown.runtimeStyle.height = 150;
+			} else {
+				DropDown.runtimeStyle.height = '';
+			}
+			DropDown.style.width = tblCombobox.offsetWidth + 15;
+			if (ListItems.offsetWidth < tblCombobox.offsetWidth) {
+				ListItems.style.width = tblCombobox.offsetWidth + 15;
+			}
+			DropDown.runtimeStyle.pixelLeft = getPixelLeft(element,"BODY");
+			DropDown.runtimeStyle.pixelTop = getPixelTop(element,"BODY") + tblCombobox.clientHeight;
+			DropDown.style.display = 'none';
+			DropDown.id = this.id + '_dropdown';
+			for (var i=0; i < ListItems.cells.length; i++) {
+				ListItems.cells[i].doClick = ListItemCell_Click;
+				ListItems.cells[i].doMouseOut = ListItemCell_MouseOut;
+				ListItems.cells[i].doMouseOver = ListItemCell_MouseOver;
+			}
+		}		
+		
+		function fnToggleDropDown() {
+			if (!bEnabled)
+				return;
+			if (selectedIndex > -1) {
+				selectListItem(selectedIndex);
+				hoverIndex = selectedIndex;
+			}
+			try {
+				if (DropDown.style.display == 'block') {
+					//hoverIndex = -1;
+					DropDown.style.display = 'none';
+					dropDownArrowCell.className = 'clsDropDownCell_hover';
+					imgArrow.src = resourcesDirectory + "images/down_arrow.gif";
+					textField.select();
+				} else {
+					DropDown.style.display = 'block';
+					imgArrow.src = resourcesDirectory + "images/down_arrow2.gif";
+					dropDownArrowCell.className = 'clsDropDownCell_click';
+					textField.select();
+					DropDown.scrollTop = getPixelTop(ListItems.cells[hoverIndex],"DIV")-1;
+				}
+			} catch(err) {err.description+='>fnToggleDropDown';throw err;}
+		}
+	
+		function getPixelTop(elem, tagName) {
+			if (elem == null)
+				return -1;
+			try {
+				var top = 0;
+				while (elem.tagName != tagName) {
+					top += elem.offsetTop;
+					elem = elem.offsetParent;
+				}
+				return top;
+			} catch(err){ err.description+='>getPixelTop';throw err;}
+		}
+		
+		function getPixelLeft(elem, tagName) {
+			try{
+				var left = 0;
+				while (elem.tagName != tagName) {
+					left += elem.offsetLeft;
+					elem = elem.offsetParent;
+				}
+				return left;
+			} catch(err){ err.description+='>getPixelLeft';throw err;}
+		}
+		
+		function getFormElement() {
+			try{
+				var elem = element;
+				while (elem.tagName != "FORM") {
+					elem = elem.offsetParent;
+				}
+				return elem;
+			} catch(err){ err.description+=">getFormElement: Control '"+element.id+"' of type 'XPComboBox' must be placed inside a form tag.";throw err;}
+		}
+		
+		function takeValueFromDropDown() {
+			var bIsDirty = false;
+			if (selectedIndex > -1) {
+				bIsDirty = (ValueField.value != this.options[selectedIndex].value);
+				textField.value = this.options[selectedIndex].text;
+				ValueField.value = this.options[selectedIndex].value;
+			}
+			return bIsDirty;
+		}
+	
+		function selectListItem(index) {
+			var item = ListItems.cells[index];
+			item.style.backgroundColor = 'Highlight';
+			item.style.color = 'HighlightText';
+		}
+		function blurListItem(index) {
+			if (index > -1) {
+				var item = ListItems.cells[index];
+				item.style.backgroundColor = 'transparent';
+				item.style.color = 'black';
+			}
+		}
+	
+	</SCRIPT>
+	<STYLE TYPE="text/css"><!--
+      .clsTextField {	
+				border:none;
+				margin-right:1px;
+				margin-left:1px;
+       }
+      .clsTextFieldCell {background-color:white;border:ridge 1px buttonface;}
+      .clsTextFieldCell_hover {background-color:white;border:solid 1px Highlight;}
+      .clsDropDownCell {
+				background-color:buttonface;
+				border-top:ridge 1px buttonface;
+				border-bottom:ridge 1px buttonface;
+				border-right:ridge 1px buttonface; 
+				border-left:none;
+			}
+      .clsDropDownCell_hover {
+				background-color:#B6BDD2;
+				border-top:solid 1px Highlight;
+				border-bottom:solid 1px Highlight;
+				border-right:solid 1px Highlight;
+				border-left:none;
+			}
+      .clsDropDownCell_click {
+				background-color:#8592B5;
+				border-top:solid 1px Highlight;
+				border-bottom:solid 1px Highlight;
+				border-right:solid 1px Highlight;
+				border-left:none;
+			}
+	--></STYLE>
+		<body>
+			<table unselectable="on" ID="tblCombobox" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td unselectable="on" class="clsTextFieldCell" id="textFieldCell"><input class="clsTextField" name="textField" id="textField" type="text" NAME="textField"></td>
+					<td id="dropDownArrowCell" class="clsDropDownCell"><img width=5 height=3 id="imgArrow" src="images/down_arrow.gif" vspace="2" hspace="3"/></td>
+				</tr>
+			</table>
+		</body>
+</PUBLIC:COMPONENT>

@@ -1,0 +1,54 @@
+BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TABLE {
+	FONT-SIZE: 12px; FONT-FAMILY: ??
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: ??
+}
+.big_14 {
+	FONT-SIZE: 14px
+}
+.large {
+	FONT-SIZE: 14px
+}
+.small {
+	FONT-SIZE: 10px
+}
+.title {
+	color: #ff6600;
+	font-size: 16px;
+	font-weight: bold;
+}
+.left {
+	FILTER: dropshadow(color=#ffffff,offx=1, offy=1, positive=1); COLOR: #333333
+}
+.main {
+	FILTER: dropshadow(color=#999999,offx=1, offy=1, positive=1); COLOR: #000000	
+}
+.pop {
+	FONT-FAMILY: Courier New, Courier, mono
+}
+A.L_top1:link {
+	COLOR: #003366; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.L_top1:visited {
+	COLOR: #003366; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.L_top1:hover {
+	COLOR: #ff6600; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.L_top1:active {
+	COLOR: #ffd154; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+.MenuTd
+{
+	
+	 border-style:double;
+	 border-color:#31796b;
+}
+.HideBar
+{
+	background-color: #c1dafe;
+}

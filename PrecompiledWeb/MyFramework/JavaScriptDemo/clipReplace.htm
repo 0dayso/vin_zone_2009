@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+    <script type="text/javascript" language="javascript" src="../JavaScript/Common/bsCalendar.js"/>
+               
+    <script language="javascript" type="text/javascript">
+
+    
+    
+    function rep()
+    {
+        //clipboardData.getData('text')获取剪切板中的数据。
+        //clipboardData.setData('text','222')设置剪贴版的数据。
+        clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''));
+    }
+    </script>
+</head>
+<body >
+    <input id="Text1" type="text" onbeforepaste="rep();"/>
+    将剪贴板中的内容只保留 数字 23423werwesdfsd23<br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+      
+    <input id="Text2" type="text" isCalendar="yes" />
+   
+</body>
+</html>

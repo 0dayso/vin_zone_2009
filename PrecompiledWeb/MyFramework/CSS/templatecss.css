@@ -1,0 +1,63 @@
+﻿BODY {
+	FONT-SIZE: 15px; COLOR: #000000; FONT-FAMILY: 宋体, Arial, Helvetica, sans-serif
+}
+.title
+{
+	FONT-SIZE: 16px; COLOR: #000000; FONT-FAMILY: 宋体, Arial, Helvetica, sans-serif;
+	background-color:White;
+}
+.redfont
+{
+	color:Red;
+}
+.smallerblack
+{
+	font-size:14px;
+	font-family:宋体;
+	background-color:White;
+}
+.cellstyle
+{
+	background-color:White;
+}
+.bmsTableHeader13
+{
+	padding-left: 4px;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: 宋体, Arial, Helvetica, sans-serif;
+	border-right: #AAAAAA 1px solid;
+	border-top: #AAAAAA 1px solid;
+	border-left: #AAAAAA 1px solid;
+		background-color:White;
+	border-bottom:#AAAAAA 1px solid;
+}
+.bmsItemTable
+{
+	background:white;
+}
+.bmsInputContent
+{
+	
+	FONT-FAMILY: 宋体, Arial, Helvetica, sans-serif;
+	background-color:White;
+}
+.bmsInputCaption
+{
+	
+	FONT-FAMILY: 宋体, Arial, Helvetica, sans-serif;
+	background-color:White;
+}
+.bmsEditTable
+{
+	margin-left: 1px;
+	margin-top: 1px;
+	background-color: #000000;
+}
+.bmsEditTableXu
+{
+	margin-left: 1px;
+	margin-top: 1px;
+	background-color: #000000;
+	border:dotted;
+}

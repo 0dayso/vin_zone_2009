@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox.csproj", "{471F8A34-33BF-49C0-A3AD-DC369464A6BE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgStudiosDemo", "http://localhost/ProgStudiosDemo/ProgStudiosDemo.csproj", "{E431FF54-067C-4F77-AC21-62CAF4E65CF4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{471F8A34-33BF-49C0-A3AD-DC369464A6BE}.Debug.ActiveCfg = Release|.NET
+		{471F8A34-33BF-49C0-A3AD-DC369464A6BE}.Debug.Build.0 = Release|.NET
+		{471F8A34-33BF-49C0-A3AD-DC369464A6BE}.Release.ActiveCfg = Release|.NET
+		{471F8A34-33BF-49C0-A3AD-DC369464A6BE}.Release.Build.0 = Release|.NET
+		{E431FF54-067C-4F77-AC21-62CAF4E65CF4}.Debug.ActiveCfg = Release|.NET
+		{E431FF54-067C-4F77-AC21-62CAF4E65CF4}.Debug.Build.0 = Release|.NET
+		{E431FF54-067C-4F77-AC21-62CAF4E65CF4}.Release.ActiveCfg = Release|.NET
+		{E431FF54-067C-4F77-AC21-62CAF4E65CF4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

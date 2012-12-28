@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<meta name="Distribution" content="Global" />
+	<meta name="Author" content="liuchao@mapbar.com" />
+	<meta name="Robots" content="index,follow" />
+	<meta name="Description" content="" />
+	<meta name="Keywords" content="" />
+	<title>��ͼ,����,�й���ͼ--Mapbar���Ϊ������!</title>
+    <style type="text/css">
+        body {
+            margin: 0px;	padding: 0;font-size:12px;
+            font-family : "Lucida Grande", Verdana, Lucida, Arial, Helvetica,sans-serif;
+        }
+        .font14{font-size:116%;}
+        .black{color:#000;}
+        img{border:0px;}
+        a{color:#0000cc;}
+        .a1{text-decoration:none;color:black;font-weight:bold;}
+        .hmenudiv{float:right;width:100%;}
+        .hmenudiv select{width:80px;}
+        .hmenudiv tr{height:20px;}
+        .inp1{width:400px;height:20px;}
+        .inp2{width:141px;height:20px;}
+        .inp3{width:100px;height:20px;}
+        .sc{height:26px;}
+        .leftw{width:184px;text-align:right;padding:5px;}
+        #lessCityList,#moreChanel{position:absolute ;z-index:1000;width:62px;height:163px;border:1px solid #7F9DB9;background:#FFF;}
+        #lessCityList a{margin:10px;width:90%;line-height:22px;height:22px;}
+        #loginPanel{position:absolute;margin:auto;z-index:1000;width:100%;margin-top:80px;}
+    </style>
+    <script type="text/javascript" src="/js/cityData.js"></script>
+    <script type="text/javascript" src="/js/mapbarSuggest.js"></script>
+<script type="text/javascript">
+/*define some variable*/
+json_suggest="http://suggest.mapbar.com/json/getAutoSuggestKeyword.jsp?";
+json_mapList="http://ditu.mapbar.com:8200/sharemap/sharemap/";
+json_userInfo=json_mapList;
+var ie=document.all?1:0;
+var ie6=navigator.userAgent.split(";")[1].toLowerCase().indexOf("msie 6.0")=="-1"?0:1;
+/**
+* encode after decode void double encode
+*/
+function encodeDURI(uri,com){
+    if(com){return encodeURIComponent(decodeURIComponent(uri));}
+    return encodeURI(decodeURI(uri));
+}
+function decodeDURI(uri,com){
+    if(com){return decodeURIComponent(decodeURIComponent(uri));}
+    return decodeURI(decodeURI(uri));
+}
+var Class = {
+  create: function() {
+    return function() {
+      this.initialize.apply(this, arguments);
+    }
+  }
+}
+Object.extend = function(destination, source) {
+  for (var property in source) {
+    destination[property] = source[property];
+  }
+  return destination;
+}
+function $(element) {
+  if (arguments.length > 1) {
+    for (var i = 0, elements = [], length = arguments.length; i < length; i++)
+      elements.push($(arguments[i]));
+    return elements;
+  }
+  if (typeof element == 'string')
+    element = document.getElementById(element);
+  return element;
+}
+var ElementXY = Class.create();
+ElementXY.prototype = {
+        initialize: function(htmlElement) {
+        var objElem = $(htmlElement);
+        this.top = objElem.offsetTop;
+        this.left = objElem.offsetLeft;
+        while (objElem = objElem.offsetParent) {
+            this.top += objElem.offsetTop;
+            this.left += objElem.offsetLeft;
+        }
+    },
+    getX : function () { return parseInt(this.left) ;},
+    getY : function () {return parseInt(this.top); }
+}
+/**
+* cookie operate
+*/
+var Cookie=new Object();
+Cookie.setCookie=function(name,value,option){
+	//���ڴ洢��ֵ��document.cookie��cookie��ʽ�ַ���
+	var str=name+"="+escape(value);
+	if(option){
+		//��������˹���ʱ��
+		if(option.expireDays){
+			var date=new Date();
+			var ms=option.expireDays*24*3600*1000;
+			date.setTime(date.getTime()+ms);
+			str+="; expires="+date.toGMTString();
+		};
+        if(option.path)str+="; path="+option.path;
+		if(option.domain)str+="; domain"+option.domain;
+		if(option.secure)str+="; true";
+	};
+	document.cookie=str;
+};
+Cookie.getCookie=function(name){
+	var cookieRet="";
+	var cookieArray=document.cookie.split("; ");
+	var cookie=new Object();
+	for(var i=0;i<cookieArray.length;i++){
+		var arr=cookieArray[i].split("=");
+		if(arr[0]==name){cookieRet=unescape(arr[1])};
+	};
+	return cookieRet;
+};
+Cookie.deleteCookie=function(name){
+	this.setCookie(name,"",{expireDays:-1});
+};
+/**
+* cityData Fun
+*/
+var cityDataFun = {
+    getCityPropertiesByCity:function(cityValue){
+        var cityProperties={strLatLon:"GVCUSBXUIWTCR",zoom:"1",code:"086",city:"ȫ��"};
+        for(var i=0;i<cityData.province.length;i++){
+            for(var j=0;j<cityData.province[i].city.length;j++){
+                if(cityData.province[i].city[j].cityName==cityValue){
+                    cityProperties.strLatLon= cityData.province[i].city[j].citylatlon;
+                    cityProperties.zoom= cityData.province[i].city[j].cityzoom;
+                    cityProperties.code= cityData.province[i].city[j].citycode;
+                    cityProperties.city= cityValue;
+                    return cityProperties;
+                }
+            }
+        }
+        return cityProperties;
+    }
+}
+/**
+*jsLoader
+*
+*/
+var Transfer={}
+Transfer.Base = function() {}
+Transfer.Base.prototype = {
+  setOptions: function(options) {
+    if(typeof options!="object"){options={};}
+    this.options = {
+        bCache:options.bCache||false,
+        id:options.id||"scriptTemp",
+        onfailure:options.onfailure||function(){},
+        oncomplate:options.oncomplate||function(){}
+    }
+  }
+}
+var request={
+    /**
+     * @description request HASH param��
+     */
+    init:function(newUrl) {
+        newUrl=newUrl||window.location.hash;
+        var Request = {};
+        var strs = newUrl;
+        switch(newUrl.indexOf("#")){
+            case 0:{strs = newUrl.substr(1); ;break;}
+            case -1:{break;}
+        }
+        strs = strs.split("&");
+        for (var id = 0; id < strs.length; id++) {
+            Request[strs[id].split("=")[0]] = strs[id].split("=")[1];
+        }
+        return Request;
+    },
+    /**
+     * @description make string ��
+     */
+    toHashString:function(Request){
+        var newHash="";
+        for(var i in Request){
+            if(eval("Request."+i)!=undefined&&eval("Request."+i)!=""&&eval("Request."+i)!="undefined"){
+                newHash+=(newHash==""?"":"&")+i+"="+eval("Request."+i);
+            }
+        }
+        return newHash;
+    }
+};
+/**
+new Transfer.Request(url,{oncomplate:'',id:''})
+*/
+Transfer.Request=Class.create();
+Transfer.Request.prototype=Object.extend(new Transfer.Base(),{
+    initialize: function(url, options) {
+    this.setOptions(options);
+    this.request(url);
+    },
+    request:function(url){
+        this.url=url;
+        this.bCache=this.options.bCache;
+        this.id=this.options.id;
+        this.oncomplate=this.options.oncomplate;
+        this.onfailure=this.options.onfailure;
+        this.symbol="?";
+        if(this.url.indexOf("?")!="-1")this.symbol="&";
+        var head=document.getElementsByTagName("head")[0];
+        var sT = $(this.id);
+        if(sT&&sT.src&&sT.src==this.url){
+            this.oncomplate();
+            return;
+        }
+        if (sT) {sT.parentNode.removeChild(sT);}
+        var s = document.createElement("script");
+        head.appendChild(s);
+        s.setAttribute("language", "javascript");
+	    s.setAttribute("type", "text/javascript");
+	    s.setAttribute("id", this.id);
+	    s.setAttribute("src", (this.bCache && this.bCache == true) ? this.url + this.symbol + Math.random() : this.url);
+        var self=this;
+        s.onload=s.onreadystatechange=function()
+        {
+            if (typeof ActiveXObject!="undefined") {
+                if(s.readyState&&s.readyState=="loaded")self.oncomplate();
+                if(s.readyState&&s.readyState=="complete")return;
+            }else{
+                self.oncomplate();
+            }
+        }
+        s.onerror=function(){ //ie not work
+            s.parentNode.removeChild(s);
+            self.onfailure();
+            throw new Error("some error occurd,please try again later");
+        }
+     }
+});
+/****jsLoader end****/
+/**
+*
+*/
+function showPanel(obj,obj2,left,top,show){
+    var a= new ElementXY(obj);
+    var x=a.getX();
+    var y=a.getY();
+//    var pos=Position.cumulativeOffset(obj);
+//    var x=pos[0];//||a.getX();
+//    var y=pos[1];//||a.getY();
+    $(obj2).style.top=(y+(top||0))+'px';
+    $(obj2).style.left=(x+(left||0))+'px';
+    if(show){$(obj2).style.display='';}
+    else{$(obj2).style.display=($(obj2).style.display == 'none'?'':"none");}
+}
+/**
+*  create lesscity div
+*/
+function createLessCityList(obj){
+    if($(obj)){return;}
+    if(typeof lessCity =="undefined")lessCity=["ȫ��","������","�Ϻ���","������","������"];
+    var list=document.createElement("div");
+    list.id=obj;
+    list.style.display="none";
+    list.className="lessCity";
+    list.onmouseover= function(){cityDisply=true;};
+    list.onmouseout = function(){
+        if(typeof cityDisplay2!="undefined"&&cityDisplay2){$('lessCityList').style.display='none';cityDisplay2=undefined}
+        cityDisply=false;
+    };
+    var lessCityArr=[];
+    for(var i=0;i<lessCity.length;i++){
+        lessCityArr.push("<a href=\"javascript:;\" onmousedown=\"mapbardis.cityOption(this.innerHTML); return false;\" >"+lessCity[i]+"</a>");
+    }
+    lessCityArr.push("<a id=\"moreCityA\" href=\"/help/city.html\" target=_blank  >����&nbsp;&raquo;</a>");
+    list.innerHTML=lessCityArr.join("");
+    document.body.appendChild(list);
+    lessCityArr=null;
+}
+/**
+* show lessCity div
+* @obj :the panel which lesscity will display
+* @left:the x-position by obj
+* @top:the y_position by obj
+*/
+function showLessCityList(obj,left,top){
+    isInDivRange=false;
+    var cityId="lessCityList";
+    if(!$(cityId))createLessCityList(cityId);
+    showPanel(obj,cityId,left,top);
+}
+function hideLessCityList(obj){
+    if(typeof cityDisply=="undefined"||!cityDisply){$('lessCityList').style.display='none';}
+    else{cityDisplay2=true;}
+}
+var mapbardis={city:'������'};
+mapbardis.cityOption=function(cityValue,resetMap){
+    if(resetMap!=false)resetMap=true;
+    var Request = request.init();
+    cityValue=cityValue||Request.city||Cookie.getCookie("city")||(typeof localInfo!="undefined"?localInfo.city:this.city);
+    this.city=cityValue=decodeDURI(cityValue);
+    var citypanels=document.getElementsByName("cityPanel");
+    for(var jj=0;jj<citypanels.length;jj++){citypanels[jj].innerHTML=cityValue;}
+    if($('lessCityList'))$('lessCityList').style.display='none';
+    var origCity=document.getElementsByName("origCity");
+    for(var jj=0;jj<origCity.length;jj++){origCity[jj].value=cityValue;}
+    var cityNames=document.getElementsByName("city");
+    for(var jj=0;jj<cityNames.length;jj++){cityNames[jj].value=cityValue;}
+    Cookie.setCookie("city",cityValue,{expireDays:30,path:"/"});
+    getWeather.get(cityValue);
+    subSite.display(cityValue);
+    eg.get(cityValue);
+}
+/*
+���飬����չ
+*/
+var validate={
+    /*arguments para*/
+    checkEmpty:function(argumentc,str){
+        for(var i=0;i<argumentc.length;i++){
+            if(argumentc[i].value.replace(new RegExp(" ","gm"),"")==""){
+                alert(str||"�������ѯ�ַ�����");
+                argumentc[i].focus();
+                return false;}
+        }
+        return true;
+    },
+    checkValue:function(argumentc,str){
+        for(var i=0;i<argumentc.length;i++){
+            if(argumentc[i].replace(new RegExp(" ","gm"),"")==""){
+                alert(str||"�������ѯ�ַ�����");
+                return false;}
+        }
+        return true;
+    }
+}
+/*user*/
+var user={
+    userId:'',
+	userIdc:'',
+    loginInfo:function(){
+        $("loginStatePanel").innerHTML="<a href='javascript:void(0)' onclick=\"user.logout();\">ע��</a>";
+    },
+    notLoginInfo:function(){
+        $("loginStatePanel").innerHTML="<a href='javascript:void(0)' onclick=\"user.createLoginPanel();\">��¼</a>";
+    },
+    checkLogin:function(){
+        if(user.userId==""){
+			user.userId=Cookie.getCookie("userId");
+			user.userIdc=Cookie.getCookie("userIdc");
+		}
+		if(user.userIdc=="")return "";//
+        return user.userId;
+    },
+    login:function(username,psw,expireDays){
+        var url=json_userInfo;
+        new Transfer.Request(url+"user.do?method=login&username="+encodeDURI(username,1)+"&password="+encodeDURI(psw,1)+"&r="+Math.random(),{oncomplate:function(){user.checkLoginCbk(expireDays);}});
+    },
+    checkLoginCbk:function(expireDays){
+        if(userInfo.loginState.nameState=="1"&&userInfo.loginState.passState=="1"){
+            this.userId=userInfo.user.userid;
+			if(userInfo.user.useridc)this.userIdc=userInfo.user.useridc;
+            Cookie.setCookie("userId",this.userId,{expireDays:expireDays||30,path:"/"});
+			Cookie.setCookie("userIdc",this.userIdc,{expireDays:expireDays||30,path:"/"});
+            this.loginInfo();
+            Request = request.init();
+            Request.r=Math.random();
+            if(Request.ac=='mm'){
+                setHash("#"+request.toHashString(Request));
+            }else{
+                mmUrl="";
+            }
+            if($("loginPanel")){$("loginPanel").parentNode.removeChild($('loginPanel'));}
+        }else{
+            if(userInfo.loginState.nameState=="0"){alert("�û���������");}
+            else if(userInfo.loginState.passState=="0"){alert("�������");}
+        }
+    },
+    logout:function(){
+        user.userId='';
+        Cookie.setCookie("userId",user.userId,{expireDays:-1,path:"/"});
+		Cookie.setCookie("userIdc",user.userIdc,{expireDays:-1,path:"/"});
+        this.notLoginInfo();
+    },
+    createLoginPanel:function(){
+//        this.login("user","pwd");return;
+        if($("loginPanel")){$("loginPanel").style.display='';document.getElementsByName("username")[0].focus();;return;}
+        var div=document.createElement("div");
+        div.id = "loginPanel" ;
+        rsArr=[];
+        rsArr.push("<div style='position:relative;width:500px;height:200px;margin:auto;'><p style='position:absolute;top:"+(ie?3:-7)+"px;right:7px;'><img src='/images/close.gif' style='width:15px;height:15px;cursor:pointer;' onclick=\"$('loginPanel').style.display='none';\" alt='�ر�'></p>");
+        rsArr.push("<table style='width:500px;height:200px;border:2px solid #EB8C2F;margin:auto;background:#FFF;' cellpadding=10 cellspacing=10><tr><td style='width:50%;background:#FAF9F4;' valign=top>");
+        rsArr.push("<form onsubmit=\"user.login(this.username.value,this.pwd.value);return false;\"><table >");
+        rsArr.push("<tr><td style='height:40px' colspan=2  align=center ><h2 style='color:#3366CC;font-size:150%'>������¼</h2></td></tr>");
+        rsArr.push("<tr><td style='color:red;text-align:right'>�û�����</td><td><input type='text'style='width:150px;' name='username'></td></tr>");
+        rsArr.push("<tr><td style='color:red;text-align:right'>��&nbsp;&nbsp;&nbsp;�룺</td><td><input style='width:150px;' type='password' name='pwd'></td></tr>");
+        rsArr.push("<tr><td colspan=2 align=center><input type='submit'  value='��¼' name='submit1'>&nbsp;&nbsp;<input type='button' value='ȡ��' onclick=\"$('loginPanel').style.display='none'\"></td></tr>");
+        rsArr.push("</table></form>");
+        rsArr.push("</td><td style='width:50%;background:#FAF9F4;'  valign=top align=center>");
+        rsArr.push("<table><tr><td colspan=2 align=center ><h2 style='color:#3366CC;font-size:150%'>ע�����û�</h2></td></tr>");
+        rsArr.push("<tr><td colspan=2 >ע��mapbar</td></tr><tr><td colspan=2 >�����������ûᱻ����</td></tr><tr><td colspan=2 >���Ϳ��Ա����Լ������ĵ�ͼ</td></tr>");
+        rsArr.push("<tr><td align=center><a href='"+json_mapList+"user.do?method=trunRegister&curl="+window.location.href+"' target='_blank'>ע��</a></td>");
+        rsArr.push("<td><a href='"+json_mapList+"user.do?method=forgetPsw&curl="+window.location.href+"' target='_blank'>��������</a></td></tr>");
+        rsArr.push("</table></td></table></div>");
+        div.innerHTML=rsArr.join("");
+        rsArr=[];
+        loginPanelLock=false;
+        document.body.appendChild(div);
+        document.body.insertBefore(div,document.body.firstChild);
+        document.getElementsByName("username")[0].focus();
+    }
+}
+/*getWeather*/
+var getWeather={
+    get:function(cityValue){
+        var date=new Date();
+        var r=date.getYear()+"-"+date.getMonth()+"-"+date.getDate()+"-"+date.getHours();
+        new Transfer.Request("http://ditu.mapbar.com/json/getWeatherByCity.jsp?city="+encodeDURI(cityValue)+"&r="+r,{oncomplate:getWeather.cbk,id:'weather'});
+    },
+    cbk:function(){
+        if((typeof weather)!="undefined"&&$('weatherPanel')&&(mapbardis.city.indexOf(weather.city)!=-1)){
+            $('weatherPanel').innerHTML='<img src="http://ditu.mapbar.com/images/wimage/'+weather.imgsrc+'" width="15" height="15">&nbsp;'+weather.city+'&nbsp;&nbsp;&nbsp;'+weather.baseInfo+'&nbsp;&nbsp;&nbsp;'+weather.temperature+'&nbsp;&nbsp;&nbsp;'+weather.wind+'&nbsp;&nbsp;&nbsp;'+weather.radiation;
+        }else{
+            $('weatherPanel').innerHTML="";
+        }
+    }
+}
+var eg={
+    get:function(cityValue){
+        cityProperties=cityDataFun.getCityPropertiesByCity(cityValue);
+        var date=new Date();
+        var r=date.getYear()+"-"+date.getMonth()+"-"+date.getDate();
+        var url="/localsearch/eg.jsp?citycode="+cityProperties.code+"&r="+r;
+        new Transfer.Request(url,{oncomplate:eg.show});
+    },
+    show:function(){
+        if(typeof Example=='undefined')return ;
+        eg.key();
+    },
+    key:function(){
+        var strHtml="";
+        for(var i=0;i<Example.keyword.length;i++){
+            strHtml+="<a href='javascript:void(0);'onclick=\"eg.keySub(this.innerHTML);return false;\">"+Example.keyword[i].title+"</a>&nbsp;&nbsp;";
+        }
+        if(strHtml==""){$("ls_eg").innerHTML="";return false;}
+        strHtml="ʾ��:<nobr>"+strHtml+"</nobr>";
+        $("ls_eg").innerHTML=strHtml;
+    },
+    keySub:function(keyword,city){
+        var form=$("lsForm").getElementsByTagName("form")[0];
+        form.keyword.value=keyword;
+        if(city)mapbardis.cityOption(city);
+        lsSub(form);
+    }
+}
+/*����վ*/
+var subSite={
+    list:[["������","beijing"],["�Ϻ���","shanghai"],["������","jiaxing"],["������","wuxi"],["��̨��","yantai"],["Ȫ����","quanzhou"],["������","changchun"],["������","huaian"],["������","daqing"],["�ൺ��","qingdao"],["�Ͼ���","nanjing"],["�׸���","hegang"],["������","changzhou"],["������","jiaozuo"],["������","sanming"],["������","shenyang"],["���","hongkong"],["��³ľ����","wulumuqi"],["������","jinan"],["������","fuzhou"],["֣����","zhengzhou"],["������","guangzhou"],["�ȷ���","langfang"],["������","wuzhou"],["������","nanning"],["������","xuzhou"],["������","longyan"]],
+    panel:"",
+    check:function(cityValue){
+        for(var i=0;i<this.list.length;i++){
+            if(decodeURI(cityValue)==this.list[i][0]){
+                return this.list[i];
+            }
+        }
+        return null;
+    },
+    display:function(cityValue){
+        var site=this.check(cityValue);
+        this.panel=document.getElementById("subSitePanel");
+        if(this.panel){this.panel.innerHTML="";}
+        if(site==null||!this.panel)return;
+        else{
+            this.panel.innerHTML="<a href='http://main.mapbar.com/city/"+site[1]+"/'>"+site[0].replace('��','')+"��վ</a>";
+        }
+    }
+}
+/*================================================================*/
+/*localsearch submit*/
+function lsSub(obj){
+    if(validate.checkEmpty([obj.keyword]))
+    window.location.href="/localsearch/index.html#ac=lc&keyword="+encodeDURI(obj.keyword.value,1)+"&city="+encodeDURI(mapbardis.city);
+}
+function loadInit(){
+    if(typeof json_suggest!="undefined")mapbarInputSuggest.bind(json_suggest);
+    mapbardis.cityOption();
+    if(user.checkLogin())user.loginInfo();else{user.notLoginInfo();}
+    $("lsSuggest").focus();
+}
+    </script>
+</head>
+<body onload="loadInit();">
+<div style="position:absolute;z-index:1;min-width:792px;">
+    <table style="width:100%">
+        <tr>
+            <td style="width:30px;"><nobr><a href="http://main.mapbar.com/" target="_blank">�ɰ�</a></nobr></td>
+            <td style="width:80px;"><nobr id="subSitePanel"></nobr></td>
+            <td align=right valign="bottom"><nobr id="weatherPanel"></nobr></td>
+            <td align=right valign="bottom">
+				<a href="http://ditu.mapbar.com/help/help.html" target="_blank">����</a>
+				<nobr id="loginStatePanel"></nobr>
+			</td>
+        </tr>
+    </table>
+</div>
+<center>
+    <table style="width:792px;margin-top:70px;" >
+        <tr >
+            <td align="center" colspan="2"><a href="http://www.mapbar.com"><img src="/images/logo.gif" alt="mapbar.com"></a></td>
+        </tr>
+        <tr style="">
+            <td class="leftw">&nbsp;</td>
+            <td align="left" valign="bottom" style="width:580px;height:70px;" class="font14">
+                    <a class="a1">��ͼ����</a> |
+                    <a href="/index1.html#ac=2" >������ѯ</a> |
+                    <a href="/index1.html#ac=3" >�ݳ�����</a> |
+                    <a href="/index1.html#ac=4" >�ܱ߲�ѯ</a> |
+                    <a href="/localsearch/index.html#ac=bp">�����ͼ</a> |
+                    <a href="javascript:void(0);" onclick="showPanel(this,'moreChanel',0,20);" onblur="document.getElementById('moreChanel').style.display='none';">����&nbsp;&raquo;</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="2" >
+                <!--localsearch-->
+                <div  id="lsForm" class="hmenudiv" >
+                    <table>
+                        <form onsubmit="lsSub(this);return false;">
+                        <tr>
+                            <td class="leftw">
+                                <a href='javascript:void(0)' title="�������" onclick="showLessCityList(this,-10,20);" onblur="hideLessCityList();" style="text-decoration:none;" class="black"><nobr name="cityPanel" id="cityPanel" ></nobr><img src="/images/nw/list.png" ></a>
+                            </td>
+                            <td><input class="inp1" name="keyword" autocomplete="off" id="lsSuggest" issuggest="yes"></td>
+                            <td>
+                                <input name="lsFormSub" type="submit" value="�ѡ���" class="sc">
+                                <input type="hidden" name="city" value="������">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="leftw"><!--a href="javascript:;" onclick="showLessCityList(this,0,20);">[�������]</a--></td>
+                            <td colspan="2" id="ls_eg"></td>
+                        </tr>
+                        </form>
+                    </table>
+                </div>
+                
+            </td>
+        </tr>
+		<tr style="height:40px;">
+			<td colspan="2" align="center" valign="bottom"><a href="/localsearch/index.html#ac=mm" style='color:red'>�����ҵĵ�ͼ����Mapbar��˾��Ůair�ĳ�û�ء�</a></td>
+		</tr>
+        <tr style="height:40px;">
+            <td colspan="2" align="center" valign="bottom">
+                <a href="http://ditu.mapbar.com/help/about.html" target="_blank">��������</a> |
+                    <a href="http://ditu.mapbar.com/help/production.html" target="_blank">��ҵ�ƹ�</a> |
+                    <a href="http://ditu.mapbar.com/help/cooperate.html" target="_blank">���߼���</a> |
+                    <a href="http://ditu.mapbar.com/help/lianxi_001.html" target="_blank"> ��ϵ����</a> |
+                    <a href="http://ditu.mapbar.com/help/sitelist.html" target="_blank"> ��վ�б�</a>
+            </td>
+         </tr>
+        <tr>
+            <td colspan="2" align="center">
+                Copyright &copy;2007 Mapbar Inc. All Rights Reserved.
+                <br>��ͼ��:GS(2006)781 &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miibeian.gov.cn" target="_blank">[��ICP֤050054��]</a>
+            </td>
+        </tr>
+    </table>
+</center>
+<div id="moreChanel"  onMouseOver="this.style.display=''" onMouseOut="this.style.display='none'" style="display:none; width:85px" >
+    <table>
+        <tr><td><a href="http://service.mapbar.com/classified/fc.jsp" onmousedown="window.location.href=this.href">��������</a></td></tr>
+        <tr><td><a href="http://service.mapbar.com/classified/pw.jsp"  onmousedown="window.location.href=this.href">Ʊ���ѯ</a></td></tr>
+        <tr><td><a href="http://service.mapbar.com/classified/hr.html" onmousedown="window.location.href=this.href">��Ƹ</a></td></tr>
+        <tr><td><a href="http://service.mapbar.com/classified/food.html"  onmousedown="window.location.href=this.href">����</a></td></tr>
+        <tr><td><a href="http://club.mapbar.com/wiki2_0/"  onmousedown="window.location.href=this.href">��ͼ���ֲ�</a></td></tr>
+        <tr><td><a href="http://blog.mapbar.com/"  onmousedown="window.location.href=this.href">��ͼ����</a></td></tr>
+        <tr><td><a href="http://service.mapbar.com/localsearch/mobile/"  onmousedown="window.location.href=this.href">�ֻ���ͼ</a></td></tr>
+		<tr><td><a href="/localsearch/index.html#ac=mm"  onmousedown="window.location.href=this.href">�ҵĵ�ͼ</a></td></tr>
+    </table>
+</div>
+</body>
+</html>

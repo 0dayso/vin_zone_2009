@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "F:\学习\WebCli\", ".", "{CFDF9BF2-38FC-4993-9083-6351E546ACD6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/WebCli"
+		Debug.AspNetCompiler.PhysicalPath = "F:\学习\WebCli\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebCli\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebCli"
+		Release.AspNetCompiler.PhysicalPath = "F:\学习\WebCli\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebCli\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2953"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFDF9BF2-38FC-4993-9083-6351E546ACD6}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CFDF9BF2-38FC-4993-9083-6351E546ACD6}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

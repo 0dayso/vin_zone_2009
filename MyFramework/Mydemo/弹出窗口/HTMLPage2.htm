@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页</title>
+
+    <script language="javascript" type="text/javascript">
+        // 窗口是否存在
+        var HiddenMsgId = null;
+
+        //建立一个弹出窗口
+        var oPopup = window.createPopup();
+
+        //得到这个弹出窗口的body
+        var oPopupBody = oPopup.document.body;
+
+        //开始显示的坐标（默认是最右下脚）
+        flyMove.expand = 0;
+        flyMove.flyY = 0;
+        flyMove.flyX = 0;
+
+        //渐进显示的定时器
+        var g_idFlyPopup = -1;
+
+        //显示弹出窗口的定时器
+        var TimeoutFlag = -1;
+
+
+        window.onblur = function () {
+            HiddenMsgId = null;
+        }
+
+        //显示弹出窗口的方法
+        function richDialog() {
+            if (document.getElementById("MessageCheck").checked) {
+
+                var dt = null; // MainPage.GetMessage().value;
+                
+
+
+                if (null != dt) {
+                    window.focus();
+                    if (HiddenMsgId != dt.Rows[0]["MESSAGE_ID"]) {
+                        //在弹出窗口中写入文字和数据
+                        oPopup.document.body.innerHTML = oDialog.innerHTML;
+
+                        oPopupBody.style.fontSize = document.body.currentStyle.fontSize;
+
+                        oPopupBody.style.cursor = "pointer";
+                        oPopupBody.style.color = "infotext";
+                        oPopupBody.style.borderWidth = '3px';
+                        oPopupBody.style.borderStyle = 'window-inset';
+
+                        //oPopupBody.style.borderColor='activeborder';
+                        //下面代码会立即显示弹出窗口
+                        //   oPopup.show(100, 50, 400, 300);
+                        if (null == dt.Rows[0]["MSG_TITLE"]) {
+                            oPopup.document.getElementById("MSG_TITLE").innerText = "";
+                        } else {
+                            oPopup.document.getElementById("MSG_TITLE").innerText = dt.Rows[0]["MSG_TITLE"];
+                        }
+                        if (null == dt.Rows[0]["MSG_CONTENT"]) {
+                            oPopup.document.getElementById("MSG_CONTENT").innerText = "";
+                        } else {
+                            oPopup.document.getElementById("MSG_CONTENT").innerText = dt.Rows[0]["MSG_CONTENT"];
+                        }
+                        oPopup.document.getElementById("Message_Id").innerText = dt.Rows[0]["MESSAGE_ID"];
+
+                        //                        document.getElementById("HiddenMsgId").value = dt.Rows[0]["MESSAGE_ID"];
+
+                        oPopup.document.getElementById("MSG_Count").innerText = "您有" + dt.Rows.length + "条未读新消息"
+                        flyInit();
+                        g_idFlyPopup = window.setInterval("flyMove()", 10);
+
+                        HiddenMsgId = dt.Rows[0]["MESSAGE_ID"];
+                    }
+                }
+                else {
+                    window.focus();
+                    oPopup.document.body.innerHTML = oDialog.innerHTML;
+
+                    oPopupBody.style.fontSize = document.body.currentStyle.fontSize;
+
+                    oPopupBody.style.cursor = "pointer";
+                    oPopupBody.style.color = "infotext";
+                    oPopupBody.style.borderWidth = '3px';
+                    oPopupBody.style.borderStyle = 'window-inset';
+                    oPopup.document.getElementById("MSG_TITLE").innerText = "";
+                    flyInit();
+                    g_idFlyPopup = window.setInterval("flyMove()", 10);
+
+                    //下面代码会立即显示弹出窗口
+                    //  oPopup.show(100, 50, 400, 300);
+                }
+            }
+        }
+
+        function flyMove() {
+            flyMove.expand += 2;
+            flyMove.flyY -= 2;
+            // x y  width height
+            oPopup.show(flyMove.flyX - flyMove.expand, flyMove.flyY, flyMove.expand, flyMove.expand);
+            var oPopupBody = oPopup.document.body;
+
+            if (oPopupBody.clientWidth >= 230) {
+                //清除渐进显示的定时器
+                window.clearInterval(g_idFlyPopup);
+                g_idFlyPopup = -1;
+
+                //清除调用弹出窗口的定时器
+                window.clearTimeout(TimeoutFlag);
+                TimeoutFlag = -1;
+
+                //注册5秒后关闭弹出窗口的定时器
+                //window.setTimeout( 'closePopup()', 50000 );
+
+            }
+        }
+
+        //关闭弹出窗口
+        function closePopup() {
+            if (null != oPopup) {
+                oPopup.hide();
+            }
+        }
+
+        //初始化弹出窗口的坐标，将其定位到最右下角
+        function flyInit() {
+            flyMove.expand = 0;
+            flyMove.flyY = window.screen.height;
+            flyMove.flyX = window.screen.width;
+        }
+
+        function closeMessage() {
+            if (null != oPopup) {
+                MainPage.DeleteMessage(oPopup.document.getElementById('Message_Id').innerText);
+                oPopup.hide();
+                HiddenMsgId = null;
+            }
+
+        }
+
+
+
+
+
+
+        function Ischecked(checked) {
+            if (checked) {
+                HiddenMsgId = null;
+                document.getElementById('MessageCheck').checked = true;
+            }
+        }
+
+
+
+
+        function Main_onLoad() {
+            richDialog();
+            window.setInterval("richDialog()", 10000);
+        }
+    
+    
+    </script>
+
+</head>
+<body onload="Main_onLoad();">
+<input type="checkbox" checked="checked"   id="MessageCheck" />是否启用弹出框
+    <div id="oDialog" style="display: none;">
+        <div id="myid" style="position: absolute; top: 0; left: 0; width: 200px; height: 100%;
+            border: 1px solid black; border-top: 1px solid white; border-left: 1px 
+solid white; font: normal 10pt tahoma; color: blue;">
+          <!--  <div style="display: none;">
+                <embed src="Sound/type.wma" loop="false">
+            </div>-->
+            <div style="font-family: tahoma; background-color: #4490AE; margin: 0px; width: 200px;
+                height: 100%;">
+                <table border="0" cellpadding="3" cellspacing="1" width="250px" id="showtable" height="250px">
+                    <tr>
+                        <td style="padding-left: 4px; font-weight: normal; font-size: 12px; font-family: Arial;
+                            background-color: #E8F3F7; color: Black;" align="center" colspan="2">
+                            <font color="red" id="MSG_Count"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: break-word; padding-left: 4px; font-weight: normal;
+                            font-size: 12px; font-family: Arial; background-color: #E8F3F7; color: Black;
+                            width: 250px" id="MSG_TITLE" colspan="2" align="center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 4px; font-weight: normal; font-size: 12px; font-family: Arial;
+                            background-color: #E8F3F7; color: Black; width: 70px">
+                            你的详细消息:
+                        </td>
+                        <td style="background-color: White; word-wrap: break-word; padding-left: 4px; font-weight: normal;
+                            font-size: 12px; font-family: Arial; background-color: #E8F3F7; color: Black;
+                            width: 180px; height: 130px" id="MSG_CONTENT">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 3px; font-weight: normal; font-size: 12px; font-family: Arial;
+                            background-color: #E8F3F7; color: Black;" colspan="2" align="center">
+                            <button class="style1" style="border: 1px solid black; border- left: 1px solid white;
+                                border- top: 1px solid white; background: #efefef" tabindex="-1" onclick="window.parent.closeMessage();">
+                                删除消息</button>&nbsp
+                            <button class="style1" style="border: 1px solid black; border- left: 1px solid white;
+                                border- top: 1px solid white; background: #efefef" tabindex="-1" onclick="window.parent.oPopup.hide();window.parent.document.getElementById
+('MessageCheck').checked = false;isOpened=false;">
+                                关闭提示</button>&nbsp
+                            <button style="border: 1px solid black; border- left: 1px 
+solid white; border- top: 1px solid white; width: 60px; background: #efefef;" tabindex="-1" onclick="window.parent.DepartmentTask();">
+                                部门任务</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Message_Id" style="font-size: 12px; display: none">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

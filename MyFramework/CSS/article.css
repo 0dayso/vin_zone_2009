@@ -1,0 +1,11 @@
+@charset "gb2312";
+@import url("../CSS/global.css");/* È«¾Ö */
+body{background:white;color:#333}
+body,img,input,select,radio,checkbox,textare,div,h1,h2,h3,h4,h5,h6,ul,li,ol,form,hr,p{margin:0;padding:0;font-family:Î¢ÈíÑÅºÚ, Arial, Helvetica, sans-serif,;font-size:12px;}
+ul{list-style:none;}
+img{ vertical-align:middle}
+#a-left{width:700px;float:left;}
+#a-right{height:1700px;width:240px;float:right; border-left:#6094c9 1px dashed; background: #F7FBFF}
+#a-left h1{ color: #006; font-size:16px; font-weight:bold; margin-top:5px; border-bottom: #ccc 3px solid; line-height:30px;}
+#a-left h2{ font-size:14px; text-decoration:underline; margin-bottom:5px; color:#F00}
+#a-left ul{ border: #FFEFE8 1px solid; padding:5px;line-height:20px; margin:5px 0 10px 0;font-size:14px; background:#FFFFF5}

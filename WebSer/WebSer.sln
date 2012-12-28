@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "F:\学习\WebSer\", ".", "{CA66DBD7-6C74-4E60-988B-5E1A4574253C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/WebSer"
+		Debug.AspNetCompiler.PhysicalPath = "F:\学习\WebSer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSer\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebSer"
+		Release.AspNetCompiler.PhysicalPath = "F:\学习\WebSer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSer\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2918"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA66DBD7-6C74-4E60-988B-5E1A4574253C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{CA66DBD7-6C74-4E60-988B-5E1A4574253C}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,160 @@
+<script language="javascript">
+var u = window.location.href;
+var pid = getUrlParam(u,"pid","");
+var ver = getUrlParam(u,"ver","3.0.5.2");
+var firstCheck = getUrlParam(u,"firstcheck",-1);
+
+var securityId = external.twGetSecurityID(window);
+var usertype = external.GetOptionValue(securityId, "main", "usertype");
+if(usertype > 0)
+{
+    go("http://se.360.cn/v3/web/inst_v3202.htm?ver="+ver+"&usertype="+usertype+"&firstcheck=1");
+}
+else if(ver == '3.6.1.5')
+{
+    var ie6mode = external.GetOptionValue(securityId, "option", "IE6Mode");
+    if(pid == '360sewg') {
+        go('http://se.360.cn/v3/web/welcome_v3615wg.html');
+    }
+    else if(ie6mode == 1){ 
+        var useskin = external.GetOptionValue(securityId, "main", "UseSkin");
+        if(useskin == 1) {
+            go("http://se.360.cn/v3/web/welcome_ie6mode.html");
+        }
+        if(useskin == 0) {
+            go("http://se.360.cn/v3/web/welcome_v3615.html");
+        }
+    }else{
+        go('http://se.360.cn/v3/web/welcome_v3615.html')
+    }
+}
+else if (ver=="3.6.1.6" ){
+    go("http://se.360.cn/v3/web/welcome_v3638.html");
+}
+else if(pid=="360ie6tj" && firstCheck==1) {
+    go("http://se.360.cn/v3/web/welcome_360ie6tj.htm?ver="+ver+"pid="+pid+"firstcheck="+firstCheck);
+}
+else if(ver>="3.2.0.2" && ver<"3.2.0.9" && firstCheck==1) {
+    go("http://se.360.cn/v3/web/inst_v3202.htm?ver="+ver+"&firstcheck=1");
+}
+else if(firstCheck==1) {
+    var guideUrl = "http://se.360.cn/v3/guide/guide_start.htm?ver="+ver+"&firstcheck="+firstCheck;
+    if(ver >= "3.1.4.3") {
+        guideUrl = "http://se.360.cn/v3/guide/guide_031.htm?ver="+ver+"&firstcheck="+firstCheck;
+    }
+    go(guideUrl);
+}
+else if(ver>="3.9.0.4" && ver<="3.9.1.1"&& firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3911.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver == '3.8.1.0')
+{
+    
+    if(pid == '360child') {
+        go('http://se.360.cn/v3/web/welcome_children.html');
+    }
+   else{
+        go('http://se.360.cn/v3/web/welcome_v3810.html')
+    }
+}
+else if(ver>="4.0.0.1") {
+    go("http://hao.360.cn");
+}
+else if(ver=="3.9.1.2") {
+    go("http://se.360.cn/v3/web/welcome_v3912.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver=="3.9.0.7") {
+    go("http://se.360.cn/v3/web/welcome_v3907.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver=="3.8.1.2") {
+    go("http://se.360.cn/v3/web/welcome_v3812.html?ver="+ver+"&firstcheck=0");
+}
+
+else if(ver=="3.8.1.1") {
+    go("http://se.360.cn/v3/web/welcome_v3810.html?ver="+ver+"&firstcheck=0");
+}
+
+else if(ver=="3.8.0.7") {
+    go("http://se.360.cn/v3/web/welcome_v3807.html?ver="+ver+"&firstcheck=0");
+}
+
+else if(ver=="3.8.0.2") {
+    go("http://se.360.cn/v3/web/welcome_v3802.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver=="3.8.0.4") {
+    go("http://se.360.cn/v3/web/welcome_v3804.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver=="3.7.1.6") {
+    go("http://se.360.cn/v3/web/welcome_laoren.html?ver="+ver+"&firstcheck=0");
+}
+
+else if(ver=="3.7.1.0") {
+    go("http://se.360.cn/v3/web/welcome_v3708.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.7.0.1" && ver<="3.7.0.7"&& firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3707.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.6.0.1" && ver<="3.6.1.8"&& firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3617.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.5.0.1" && ver<="3.5.0.9"&& firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3601.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.3.0.0" && ver<"3.5.0.0" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v33.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.1.2.1" && ver<"3.1.4.3" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3121.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.2.0.1" && ver<"3.2.0.2" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3201.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.2.0.5" && ver<"3.2.1.1" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3205.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver="3.2.1.1" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3211.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.2.0.2" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3202.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.1.8.1" && ver<"3.1.9.0" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3181.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.1.7.1" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v317.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.1.6.0" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3160.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver>="3.1.4.3" && firstCheck==0) {
+    go("http://se.360.cn/v3/web/welcome_v3143.html?ver="+ver+"&firstcheck=0");
+}
+else if(ver && ver.substr(0,3)=="3.1" && firstCheck==0) {
+    go("http://se.360.cn/v3_1/guide/guide_scj.html?ver="+ver+"&firstcheck=0");
+}
+else {
+    go("http://se.360.cn/v3/web/welcome3_0.htm?ver="+ver+"&firstcheck=0");
+}
+function go(u) {
+    window.location.href = u;
+}
+function getUrlParam(strUrl, paramName, defaultVal) {
+    if(strUrl == null || strUrl == "" || paramName == null || paramName == "")
+    return defaultVal;
+    var paramVal = defaultVal;
+    var iPos = strUrl.indexOf("?");
+    var strParams = strUrl.substr(iPos+1);
+    var arrParams = strParams.split("&");
+    for(var i=0; i<arrParams.length; i++) {
+        var iEqualPos = arrParams[i].indexOf("=");
+        if( arrParams[i].substr(0, iEqualPos).toUpperCase() == paramName.toUpperCase() ) {
+            paramVal = arrParams[i].substr(iEqualPos+1);
+            break;
+        }
+    }
+    return paramVal;
+}
+</script>
+
+<!-- *** generated by qihoo *** -->

@@ -1,0 +1,138 @@
+
+/********************************************************************/
+	.inputB
+	{
+		width:100%;	
+	}
+	.NoBorder
+	{
+		border:0px;	
+		background-color:#ffffff;
+	}
+	.Header
+	{
+	  background-color: #dcdcdc;	
+	}
+	
+/********************************************************************/
+	
+	body
+	{
+		font-size: 12px;
+		font-family:宋体;
+		scrollbar-face-color: #e4e2e2; 
+		scrollbar-highlight-color: #ffffff; 
+		scrollbar-darkshadow-color: #f4f4f4; 
+		scrollbar-track-color: #EFEBEF; 
+		scrollbar-arrow-color: #6386bd;
+		
+		background-color: White;
+	
+		margin-top     :15px;
+		margin-left    :15px;
+		margin-right   :15px;
+		margin-bottom  :15px;
+		
+		overflow:auto;		
+	}
+	fieldset div
+	{
+		border:'8px solid #fff8fc';
+		width:100%;
+	}
+	
+	fieldset table
+	{
+		background-color:White;
+	}	
+	
+	legend b
+	{
+		color:#999999;	
+	}
+	
+	table
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	td
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	span
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	font
+	{
+		font-size:12px;	
+		font-family:宋体;
+	}
+	select
+	{
+		font-size:12px;	
+		font-family:宋体;
+	}
+	
+	option
+	{
+		font-size:12px;	
+		font-family:宋体;
+	}
+	
+	
+	.CheckBox
+	{
+		border-style:none;
+		width:14px;
+		height:14px;
+	}	
+	
+	.CheckBox input
+	{
+		border-style:none;
+		width:14px;
+		height:14px;
+	}	
+
+	button 
+	{ 
+		BORDER-RIGHT: #666666 1px solid; 
+		BORDER-TOP: #cccccc 1px solid; 
+		FONT-SIZE: 12px; 
+		BORDER-LEFT: #cccccc 1px solid; 
+		PADDING-TOP: 2px;
+		width:90px;
+		BORDER-BOTTOM: #666666 1px solid; 
+		FONT-FAMILY: Verdana; 
+		BACKGROUND-COLOR: #dcdcdc;
+		bencalie1:expression(this.onfocus		= function(){ window.event.cancelBubble=true;this.blur();});
+		bencalie2:expression(this.ondblclick	= function(){ window.event.cancelBubble=true;});
+	}
+	A:link		{ COLOR: #3E5204; TEXT-DECORATION: underline }
+	A:visited	{ COLOR: #3E5204; TEXT-DECORATION: underline }
+	A:active	{ COLOR: #3E5204; TEXT-DECORATION: none }
+	A:hover		{ COLOR: #FF0000; TEXT-DECORATION: underline }
+	A
+	{
+		color: #000080;
+		font-size:12px;
+	}
+
+	input, textarea
+	{
+		background: #F7F5FF;
+		border: #898789 1px solid;
+		font-size:12px;
+		color:#352525;
+		width:100%;
+	}
+	
+	select
+	{
+		font-family:verdana;	
+	}
+

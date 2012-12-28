@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DataSniff">
+</Property><Property Name="解决方案文件" Value="E:\-My-\My\-DONET\MyFramework\DataSniff.sln">
+</Property><Property Name="用户选项文件" Value="E:\-My-\My\-DONET\MyFramework\DataSniff.suo">
+</Property><Property Name="Date" Value="2012年5月29日">
+</Property><Property Name="Time" Value="19:41">
+</Property><Property Name="日志号" Value="4">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="DataSniff.sln" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\DataSniff.sln">
+</Event><Event ErrorLevel="0" Project="" Source="DataSniff.suo" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\DataSniff.suo">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Represent.csproj" Description="项目文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Represent.csproj">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Action\HttplistenerHandler.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Action\HttplistenerHandler.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmCtripSniff.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmCtripSniff.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmCtripSniff.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmCtripSniff.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmMain.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmMain.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmMain.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Program.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Program.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Properties\AssemblyInfo.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Properties\Resources.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Properties\Settings.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\WebBrowser.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\WebBrowser.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\WebBrowser.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\WebBrowser.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\App.config" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\App.config">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Properties\Settings.settings" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmCtripSniff.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmCtripSniff.resx">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\FrmMain.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\FrmMain.resx">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Properties\Resources.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\WebBrowser.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Represent\WebBrowser.resx">
+</Event><Event ErrorLevel="1" Project="Represent" Source="Represent\Represent.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Represent.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Represent" Source="Represent\Represent.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\Models.csproj" Description="项目文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\Models.csproj">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\FlightLowestPrice.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\FlightLowestPrice.cs">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\FlightOtherPrice.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\FlightOtherPrice.cs">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\FlightPriceCompare.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\FlightPriceCompare.cs">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\Properties\AssemblyInfo.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\RouteInformation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\RouteInformation.cs">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\Seat.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\Models\Seat.cs">
+</Event><Event ErrorLevel="1" Project="Models" Source="Models\Models.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\Models.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Models" Source="Models\Models.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="项目文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\BLL.csproj">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Interface\IRegexExpression.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Interface\IRegexExpression.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Interface\IRouteFactory.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Interface\IRouteFactory.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Interface\IRouteOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Interface\IRouteOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Operation\CommonOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Operation\CommonOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Operation\Constant.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Operation\Constant.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Operation\FactoryContribution.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Operation\FactoryContribution.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Operation\HttpClient.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Operation\HttpClient.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Common\Operation\RegexOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Common\Operation\RegexOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Ctrip\AirLineOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Ctrip\AirLineOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Ctrip\CtripRegexExpression.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Ctrip\CtripRegexExpression.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Ctrip\CtripRouteFactory.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Ctrip\CtripRouteFactory.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Ctrip\CtripRouteOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Ctrip\CtripRouteOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Elong\AirLineOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Elong\AirLineOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Elong\ElongRegexEpression.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Elong\ElongRegexEpression.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Elong\ElongRouteFactory.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Elong\ElongRouteFactory.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Elong\ElongRouteOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Elong\ElongRouteOperation.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\ProcessControlEnum.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\ProcessControlEnum.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Properties\AssemblyInfo.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\Ticket\TicketImport.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\Ticket\TicketImport.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\VeryTrip\VeryTripRegexExpression.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\VeryTrip\VeryTripRegexExpression.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\VeryTrip\VeryTripRouteFactory.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\VeryTrip\VeryTripRouteFactory.cs">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\VeryTrip\VeryTripRouteOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\BLL\VeryTrip\VeryTripRouteOperation.cs">
+</Event><Event ErrorLevel="1" Project="BLL" Source="BLL\BLL.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="BLL" Source="BLL\BLL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\AirLineInspection.csproj" Description="项目文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\AirLineInspection.csproj">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\AirLineHandle.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\AirLineHandle.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\HttpListenerOperation.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\HttpListenerOperation.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RouteComparision.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RouteComparision.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RouteComparision.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RouteComparision.Designer.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Program.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Program.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Properties\AssemblyInfo.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Properties\Resources.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Properties\Settings.Designer.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RedefineWebBrowser.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RedefineWebBrowser.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RedefineWebBrowserDocumentCompletedEventArgs.cs" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RedefineWebBrowserDocumentCompletedEventArgs.cs">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\App.config" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\App.config">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Properties\Settings.settings" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RegexExpressionConfig\CtripRegexXml.xml" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RegexExpressionConfig\CtripRegexXml.xml">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RegexExpressionConfig\ELongRegeXml.xml" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RegexExpressionConfig\ELongRegeXml.xml">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RegexExpressionConfig\VeryTripRegexXml.xml" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RegexExpressionConfig\VeryTripRegexXml.xml">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\RouteComparision.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\RouteComparision.resx">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\Properties\Resources.resx" Description="文件已成功备份为 E:\-My-\My\-DONET\MyFramework\Backup\AirLineInspection\Properties\Resources.resx">
+</Event><Event ErrorLevel="1" Project="AirLineInspection" Source="AirLineInspection\AirLineInspection.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\AirLineInspection.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="AirLineInspection" Source="AirLineInspection\AirLineInspection.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="CRM.Buzlogic" Source="..\CRM\CRM.Buzlogic\CRM.Buzlogic.csproj" Description="警告: 正将项目文件备份到与原始解决方案相对路径不同的相对路径中。文件夹层次结构上的差异可能会导致在打开或生成备份的解决方案和项目时出现问题。">
+</Event><Event ErrorLevel="2" Project="CRM.Buzlogic" Source="..\CRM\CRM.Buzlogic\CRM.Buzlogic.csproj" Description="无法打开项目文件以执行升级操作。">
+</Event><Event ErrorLevel="0" Project="" Source="DataSniff.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="DataSniff.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Represent" Source="Represent\Represent.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Models" Source="Models\Models.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="AirLineInspection" Source="AirLineInspection\AirLineInspection.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

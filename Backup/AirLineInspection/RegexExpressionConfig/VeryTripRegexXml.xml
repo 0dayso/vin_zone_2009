@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegexExpression>
+  <!--获取每行数据-->
+  <SingleRow>
+    <![CDATA[(?<=<div class="route-list clear">)((?s).+?)(?=<div class="route-list clear">)]]>
+  </SingleRow>
+  <!--获取航空公司-->
+  <AirLine>
+    <![CDATA[(?<=\|)([A-Z0-9]{2})(?=\|)]]>
+  </AirLine>
+  <!--获取机建-->
+  <Airport>
+    <![CDATA[]]>
+  </Airport>
+  <!--获取到达城市-->
+  <ArrivalCity>
+    <![CDATA[(?<=\()([A-Z]{3})(?=\)</p>)]]>
+  </ArrivalCity>
+  <!--获取到达时间-->
+  <ArrivalTime>
+    <![CDATA[(?<=<br>)(\d{2}:\d{2})(?=</p>)]]>
+  </ArrivalTime>
+  <!--获取舱位-->
+  <Cabin>
+    <![CDATA[(?<=Booking\("[A-Z0-9]+",")([A-Z])(?=",)]]>
+  </Cabin>
+  <!--获取退改签规则-->
+  <ChangeRule>
+    <![CDATA[(?<=(<SPAN((?s).)+flight_policy_tab((?s).)+"))((?s).+)(?=(">退改签))]]>
+  </ChangeRule>
+  <!--获取出发城市-->
+  <DepartureCity>
+    <![CDATA[(?<=\()([A-Z]{3})(?=\)<br>)]]>
+  </DepartureCity>
+  <!--获取起飞时间-->
+  <DepartureTime>
+    <![CDATA[(?<=<p class="time">)(\d{2}:\d{2})(?=<br>)]]>
+  </DepartureTime>
+  <!--获取折扣-->
+  <Discount>
+    <![CDATA[(?<=\|)(\d+\.\d+)]]>
+  </Discount>
+  <!--获取航班号-->
+  <FlightNO>
+    <![CDATA[(?<=<strong>)(.+?)(?=<br\s+/>)]]>
+  </FlightNO>
+  <!--获取机型-->
+  <FlightType>
+    <![CDATA[(?<=showMsgBox\('\w+',')(.+?)(?=',)]]>
+  </FlightType>
+  <!--获取燃油-->
+  <Fuel>
+    <![CDATA[]]>
+  </Fuel>
+  <!--获取票价-->
+  <TicketPrice>
+    <![CDATA[(?<=Booking\("\w+","[A-Z]","[\w|-]+",")(\d+(.\d+)?)(?=",)]]>
+  </TicketPrice>
+  <!--获取Y舱价格-->
+  <Yprice>
+    <![CDATA[(?<=Booking\("\w+","[A-Z]","[\w|-]+",")(\d+(.\d+)?)(?=",)]]>
+  </Yprice>
+  <!--/////////////////////////////////////////////////////////////////////////////////////////-->
+  <!--获取航班经停-->
+  <Stops>
+    <![CDATA[(?<=Booking\("\w+","[A-Z]","[\w|-]+","\d+(\.\d+)?","\d+(\.\d+)?","[\w|-]*",")(\d)(?=",)]]>
+  </Stops>
+  
+  <!--获取正常航班中的html代码段-->
+  <NormalFragment>
+    <![CDATA[(<div class="route-list clear"><p class="airline">)((?s).+)(?=</div>(?s).+</div>(?s).+<div id="pages">)]]>
+  </NormalFragment>
+  <!--获取航班第一部分信息-->
+  <SingleRowFirst>
+    <![CDATA[((?s).+?)(?=</div>)]]>
+  </SingleRowFirst>
+  <!--获取航班第二部分信息-->
+  <SingleRowSecond>
+    <![CDATA[(?<=<div class="route-list route-list2 clear">)((?s).+?)(?=</div>)]]>
+  </SingleRowSecond>
+  
+  <!--获取分页html代码段-->
+  <PageFragment>
+    <![CDATA[(?<=<div id="pages">)((?s).+?)(?=</div>)]]>
+  </PageFragment>
+  
+  <!--获取页面分页链接-->
+  <PageLink>
+    <![CDATA[(?<=href=")((?s).+?)(?=">)]]>
+  </PageLink>
+  
+  <!--获取等待后缀-->
+  <WaitingSuffix>
+    <![CDATA[(\?.+)(?=';)]]>
+  </WaitingSuffix>
+  
+
+  <!--获取某个航班的子舱位-->
+  <SubCanbin>
+    <![CDATA[(?<=Booking\("\w+","[A-Z]","[\w|-]+","\d+(\.\d+)?","\d+(\.\d+)?","[\w|-]*","\d","\d","\d","\d",")(.)(?=",)]]>
+  </SubCanbin>
+
+</RegexExpression>

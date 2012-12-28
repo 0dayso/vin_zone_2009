@@ -1,0 +1,85 @@
+BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TABLE {
+	FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 12px;  LINE-HEIGHT: 150%; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.big_14 {
+	FONT-SIZE: 14px;
+}
+A.L_top1:link {
+	COLOR: #003366; FONT-SIZE: 14px; TEXT-DECORATION: none
+}
+A.L_top1:visited {
+	COLOR: #003366; FONT-SIZE: 14px; TEXT-DECORATION: none
+}
+A.L_top1:hover {
+	COLOR: #000000; FONT-SIZE: 14px; TEXT-DECORATION: underline
+}
+A.L_top1:active {
+	COLOR: #000000; FONT-SIZE: 14px; TEXT-DECORATION: underline
+}
+A.L_top2:link {
+	COLOR: #003366; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.L_top2:visited {
+	COLOR: #003366; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.L_top2:hover {
+	COLOR: #000000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.L_top2:active {
+	COLOR: #000000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.L_caidan01:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.L_caidan01:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.L_caidan01:hover {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+A.L_caidan01:active {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A.L_caidan02:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.L_caidan02:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.L_caidan02:hover {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+A.L_caidan02:active {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+BUTTON {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #cccccc 1px solid; WIDTH: 90px; PADDING-TOP: 2px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #dcdcdc
+}
+INPUT{BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 1px; PADDING-LEFT: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #cccccc; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #cccccc; PADDING-BOTTOM: 1px; BORDER-TOP-COLOR: #cccccc; PADDING-TOP: 1px; HEIGHT: 19px; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #cccccc}
+TEXTAREA {
+	BORDER-RIGHT: #898789 1px solid; BORDER-TOP: #898789 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BORDER-LEFT: #898789 1px solid; WIDTH: 100%; COLOR: #352525; BORDER-BOTTOM: #898789 1px solid
+}
+.yellow {
+	COLOR: #FF6600; FONT-SIZE: 12px}
+.hang {
+	FONT-SIZE: 12px; LINE-HEIGHT: 120%
+}
+	

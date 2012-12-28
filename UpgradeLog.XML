@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="MyFramework (2)">
+</Property><Property Name="解决方案文件" Value="C:\Documents and Settings\Administrator\桌面\demo\MyFramework\MyFramework (2).sln">
+</Property><Property Name="Date" Value="2011年9月21日">
+</Property><Property Name="Time" Value="16:49:43">
+</Property></Properties><Event ErrorLevel="2" Project="ProgStudiosDemo.csproj" Source=" ProgStudiosDemo.csproj:(Error List)" Description="错误: 无法转换项目引用 ComboBox。&#xA;">
+</Event><Event ErrorLevel="1" Project="ProgStudiosDemo.csproj" Source=" ProgStudiosDemo.csproj:(Warning List)" Description="警告: 此 Web 项目已转换为一个基于文件的 Web 应用程序。如果您的站点包含任何 IIS 元数据信息，例如，标记为虚拟目录的子文件夹，则建议您关闭此网站，再通过使用“打开网站”命令并选择“本地 IIS”选项卡来重新打开它。&#xA;">
+</Event><Event ErrorLevel="0" Project="ProgStudiosDemo.csproj" Source="ProgStudiosDemo.csproj" Description="已转换。&#xA;可能存在一些未解决的转换问题，您需要对其进行手动修复。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkId=46995 或搜索帮助主题“从 Visual Studio .NET 2002 或 2003 转换”。">
+</Event><Event ErrorLevel="3" Project="ProgStudiosDemo.csproj" Source="ProgStudiosDemo.csproj" Description="Converted">
+</Event></UpgradeLog>

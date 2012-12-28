@@ -1,0 +1,162 @@
+<script>
+	function getMonthDay(dYear,dMonth)
+	{
+		var February	= 28;
+		if( ( dYear % 400 == 0 ) || ( dYear % 4 == 0 && dYear % 100 != 0 ) ) February = 29;
+		var MonthList	= new Array( 31, February, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
+		
+		return MonthList[ dMonth - 1 ];
+	}		
+	
+	
+	// 获得一个月第一天是星期几				
+	function getBeginWeek(dYear,dMonth)
+	{				
+		var NowDate = new Date( dYear, dMonth - 1, 1 );
+		return NowDate.getDay();
+	}	
+	
+ function create() {
+	    var today=new Date();
+	    var currentDay=today.getDate();
+	    var currentMonth=today.getMonth() + 1;
+	    var currentYear=today.getFullYear();
+	    var currentDate=currentYear +"-"+ ( currentMonth < 10 ? "0"+currentMonth : currentMonth ) +"-"+ ( currentDay < 10 ? "0"+currentDay : currentDay );
+	     
+	    var calendarDay=currentDay;
+	    var calendarYear=currentYear;
+	    var calendarMonth=currentMonth;
+	    var calendarMonthDay=getMonthDay(calendarYear,calendarMonth);
+	    var calendarBeginWeekday=getBeginWeek(calendarYear,calendarMonth);
+	    var calendarDate=currentDate;
+	    
+    
+     	var calendarTable=document.createElement("TABLE");
+     	calendarTable.cellSpacing="0";
+     	calendarTable.cellPadding="2";
+     	calendarTable.rules="all";
+     	calendarTable.borderColorLight="#aaaaaa";
+     	calendarTable.style.border="1px solid";
+     	calendarTable.style.height="10";
+     	calendarTable.style.fontSize="12px";
+     	calendarTable.style.filter ="progid:DXImageTransform.Microsoft.Shadow(color=#999999,direction=135,strength=7)";
+     	document.body.appendChild(calendarTable);
+     	
+     	var calendarTableBody=document.createElement("TBODY");
+     	calendarTable.appendChild(calendarTableBody);
+
+     	var calendarTableRows=document.createElement("TR");
+     	calendarTableBody.appendChild(calendarTableRows);
+     	calendarTableRows.style.backgroundColor="#E2E5D7";
+     	calendarTableRows.align="center";
+     	
+     	var calendarTableCells=document.createElement("TD");
+     	calendarTableRows.appendChild(calendarTableCells);
+     	calendarTableCells.innerText="<";
+     	calendarTableCells.style.width="13";
+     	   	
+     	var calendarTableCells=document.createElement("TD");
+     	calendarTableRows.appendChild(calendarTableCells);
+     	calendarTableCells.colSpan=5;
+     	
+     	var calendarYearSelect=document.createElement("SELECT");
+     	calendarTableCells.appendChild(calendarYearSelect); 
+     	calendarYearSelect.style.height=10;
+     	calendarYearSelect.style.fontSize="12px";
+     	
+     	for( var i=1900; i<=2099; i++ ) {
+     		 var calendarYearOption=document.createElement("OPTION");
+				 calendarYearSelect.appendChild(calendarYearOption);
+				 calendarYearOption.value=i;
+				 calendarYearOption.text=i;
+				 if (i==calendarYear) calendarYearOption.selected=true;
+     	}
+     	
+     	
+     	var calendarMonthSelect=document.createElement("SELECT");
+     	calendarTableCells.appendChild(calendarMonthSelect); 
+     	calendarMonthSelect.style.height=10;
+     	calendarMonthSelect.style.fontSize="12px";
+     	
+     	for( var i=1; i<=12; i++ ) {
+     		 var calendarMonthOption=document.createElement("OPTION");
+				 calendarMonthSelect.appendChild(calendarMonthOption);
+				 calendarMonthOption.value=i;
+				 if (i<10) calendarMonthOption.text="0"+i;
+				 else calendarMonthOption.text=i;
+				 if (i==calendarMonth) calendarMonthOption.selected=true;
+     	}
+     	     	
+     	var calendarTableCells=document.createElement("TD");
+     	calendarTableRows.appendChild(calendarTableCells);
+     	calendarTableCells.innerText=">";
+     	calendarTableCells.style.width="13";
+     	
+     	var eventWrapper = function(obj){
+				return function(){
+                obj.addCalendarMonth(obj);
+        }
+      }
+     	
+     	calendarTableCells.onclick=eventWrapper(this);
+     	
+     	var calendarTableRows=document.createElement("TR");
+     	calendarTableBody.appendChild(calendarTableRows);
+     	calendarTableRows.style.backgroundColor="#E3EBDF";
+     	calendarTableRows.align="center";
+     	
+     	var calendarWeekDesc=["日","一","二","三","四","五","六"];
+     	
+     	for (var i=0;i<7;i++) {
+	     	var calendarTableCells=document.createElement("TD");
+	     	calendarTableRows.appendChild(calendarTableCells);
+	     	calendarTableCells.innerText=calendarWeekDesc[i];
+	     	calendarTableCells.style.width="13";
+     	} 
+  		
+
+  		var tempDay=1;
+  		while (tempDay <=calendarMonthDay ) {
+      	var calendarTableRows=document.createElement("TR");
+     		calendarTableBody.appendChild(calendarTableRows);
+     		calendarTableRows.style.backgroundColor="#ECEAF2";
+     		calendarTableRows.align="center";
+     		for( var i=0; i<7; i++ ) {
+     			var calendarTableCells=document.createElement("TD");
+     			calendarTableRows.appendChild(calendarTableCells);
+     			
+     			if ((calendarBeginWeekday == i || tempDay != 1) && tempDay <= calendarMonthDay) {
+     				calendarTableCells.innerText=tempDay;
+     				calendarTableCells.style.cusor="hand";
+     				if( calendarYear == currentYear && calendarMonth == currentMonth && currentDay == tempDay ) {
+     					calendarTableCells.style.color="red";
+     				}
+			     			
+     				tempDay++;
+     			}else{
+     				calendarTableCells.innerText="";
+     			}
+     		}
+  		}
+  		
+      var calendarTableRows=document.createElement("TR");
+     	calendarTableBody.appendChild(calendarTableRows);
+     	calendarTableRows.style.backgroundColor="#ECEAF2";
+     	calendarTableRows.align="center";
+ 
+	    var calendarTableCells=document.createElement("TD");
+	    calendarTableRows.appendChild(calendarTableCells);
+	    calendarTableCells.colSpan=5;
+	    calendarTableCells.style.cusor="hand";
+	    calendarTableCells.innerText="今日："+calendarDate; 
+	     
+	    var calendarTableCells=document.createElement("TD");
+	    calendarTableRows.appendChild(calendarTableCells);
+	    calendarTableCells.colSpan=2;
+	    calendarTableCells.style.cusor="hand";
+	    calendarTableCells.innerText="清空";
+}
+</script> 
+<body>
+	<a href="javascript:create()">add</a>
+</body> 

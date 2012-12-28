@@ -1,0 +1,219 @@
+body, table ,tr, td, div, span{  font-family:宋体; font-size:12px; }
+fieldset label {
+  float:left;
+  width:120px;
+  text-align:right;
+  padding:4px;
+  margin:1px;
+}
+fieldset div {
+  clear:left;
+  margin-bottom:2px;
+  color:#666666;
+  
+}
+
+.HtoLow
+{
+    FILTER: progid:DXImageTransform.Microsoft.gradient(startColorStr:#d0e0f7,EndColorStr :CornflowerBlue,GradientType:0);  
+}
+.HtoLowRed
+{
+    FILTER: progid:DXImageTransform.Microsoft.gradient(startColorStr:#D9CBFC,EndColorStr :#8F76CF,GradientType:0);  
+}
+/********************************************************************/
+	.小数
+	{
+		text-align:right;
+		bencalie1:expression( this.onfocus	= function(){ window.event.cancelBubble=true; ReturnformatXS(this); });
+		bencalie2:expression( this.onblur	= function(){ window.event.cancelBubble=true; formatXS(this); });
+		color:#225DDC;	
+	}
+
+	.货币
+	{
+		text-align:right;
+		bencalie1:expression( this.onfocus	= function(){ window.event.cancelBubble=true; ReturnformatCurrency(this); });
+		bencalie2:expression( this.onblur	= function(){ window.event.cancelBubble=true; formatCurrency(this); });
+		color:#225DDC;
+	}
+	
+	.货币readonly
+	{
+		text-align:right;
+		color:#FF0000;
+	}	
+	
+	.数字
+	{
+		bencalie1:expression( this.onfocus	= function(){ window.event.cancelBubble=true; ReturnOnlyNumber(this); });
+		bencalie2:expression( this.onblur	= function(){ window.event.cancelBubble=true; OnlyNumber(this); });
+		color:#225DDC;	
+	}
+	
+	.日期
+	{
+		bencalie1:expression( this.onfocus	= function(){ window.event.cancelBubble=true; AhuiDateBeginRun(this); });
+		readonly:expression(this.readOnly=true);
+		cursor:hand;
+		text-align:center;
+		width:70px;
+	}	
+	
+	
+
+	.打印页面
+	{
+		bencalie1:expression( this.onclick		= function(){ window.event.cancelBubble=true; document.all.WebBrowser.ExecWB(6,1) } );
+	}
+	
+	.直接打印
+	{
+		bencalie1:expression( this.onclick		= function(){ window.event.cancelBubble=true; document.all.WebBrowser.ExecWB(6,6) } );
+	}
+	
+	.页面设置
+	{
+		bencalie1:expression( this.onclick		= function(){ window.event.cancelBubble=true; document.all.WebBrowser.ExecWB(8,1) } );
+	}	
+	
+	.打印预览
+	{
+		bencalie1:expression( this.onclick		= function(){ window.event.cancelBubble=true; document.all.WebBrowser.ExecWB(7,1) } );
+	}
+	
+	
+	
+	.inputB
+	{
+		width:100%;	
+	}
+	.NoBorder
+	{
+		border:0px;	
+		background-color:#ffffff;
+	}
+	
+	.DataGridPage
+	{
+		color: red;	
+	}
+	
+	.DataGridPage A:link	{ COLOR: #000000; TEXT-DECORATION: none }
+	.DataGridPage A:visited	{ COLOR: #000000; TEXT-DECORATION: none }
+	.DataGridPage A:active	{ COLOR: #000000; TEXT-DECORATION: none }
+	.DataGridPage A:hover	{ COLOR: #000000; TEXT-DECORATION: underline }
+	
+	
+
+/********************************************************************/
+	
+	v\:* 
+	{ 
+		BEHAVIOR: url(#default#VML) 
+	}
+	fieldset div
+	{
+		border:'8px solid #fff8fc';
+		width:100%;
+	}
+	
+	fieldset table
+	{
+		background-color:White;
+	}	
+	
+	legend b
+	{
+		color:#999999;	
+	}
+	
+	table
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	td
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	span
+	{
+		font-size: 12px;
+		font-family:宋体;
+	}
+	font
+	{
+		font-size:12px;	
+		font-family:宋体;
+	}
+	select
+	{
+		font-size:12px;	
+		font-family:宋体;
+	}
+
+	
+	.CheckBox
+	{
+		border-style:none;
+		width:14px;
+		height:14px;
+	}	
+	
+	.CheckBox input
+	{
+		border-style:none;
+		width:14px;
+		height:14px;
+	}	
+	body
+	{
+		font-size: 12px;
+		font-family:宋体;
+		
+	}
+	button 
+	{ 
+	   
+	
+		BORDER-RIGHT: #666666 1px solid; 
+		BORDER-TOP: #cccccc 1px solid; 
+		FONT-SIZE: 12px; 
+		BORDER-LEFT: #cccccc 1px solid; 
+		PADDING-TOP: 2px;
+		width:90px;
+		BORDER-BOTTOM: #666666 1px solid; 
+		FONT-FAMILY: Verdana; 
+		BACKGROUND-COLOR: #dcdcdc;
+		bencalie1:expression(this.onfocus		= function(){ window.event.cancelBubble=true;this.blur();});
+		bencalie2:expression(this.ondblclick	= function(){ window.event.cancelBubble=true;});
+	}
+	A:link		{ COLOR: #3E5204; TEXT-DECORATION: underline }
+	A:visited	{ COLOR: #3E5204; TEXT-DECORATION: underline }
+	A:active	{ COLOR: #3E5204; TEXT-DECORATION: none }
+	A:hover		{ COLOR: #FF0000; TEXT-DECORATION: underline }
+	A
+	{
+		color: '#000080';
+		font-size:12px;
+	}
+
+	input, textarea
+	{
+		background: #F7F5FF;
+		border: #898789 1px solid;
+		font-size:12px;
+		color:#352525;
+	}
+	
+	select
+	{
+		font-family:verdana;	
+	}
+	
+	.HideGridColumn
+	{
+		display:none;
+	}
