@@ -5,8 +5,6 @@
 <head id="Head1" runat="server">
     <title></title>
     <script src="Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
-
-
     <style type="text/css">
         .red
         {
@@ -95,18 +93,15 @@
             height: 30px;
         }
     </style>
-
     <script type="text/javascript">
 
         //我们使用  $(document).ready()  包住我们的  jQuery 代码，DOM 加载完毕后就可以使它所有东西都可用。
-        $(document).ready(function ()
-        {
+        $(document).ready(function () {
             $('span:contains(冯瑞涛)').addClass('red');
         });
 
         // 添加风格，让list横向排列
-        $(document).ready(function ()
-        {
+        $(document).ready(function () {
             //选择#selected-plays    下面的li元素
             $('#selected-plays > li').addClass('horizontal');
             //递归所有li，自定义选择器:not 排除.horizontal类的元素
@@ -114,8 +109,7 @@
         });
 
         // 使用XPath 属性选择器 为链接分配Class
-        $(document).ready(function ()
-        {
+        $(document).ready(function () {
             //正则表达式，获得所有内容为mailto:开始的
             $('a[href^="mailto:"]').addClass('mailto');
             //正则表达式，内容为.pdf 结尾的
@@ -125,8 +119,7 @@
         });
 
         //
-        $(document).ready(function ()
-        {
+        $(document).ready(function () {
             //为th的父对象tr添加类
             $('th').parent().addClass('table-heading');
             //tr，除了内容存在th 属性 的并且TR索引值匹配为偶数的元素
@@ -153,6 +146,8 @@
             $('td:contains("Henry")').parent().find('td:eq(1)').addClass( 'highlight').end().find('td:eq(2)').addClass('highlight');
             */
 
+            var aa = $("tr:[align=center]").addClass('highlight');
+            
 
         });
 
@@ -160,7 +155,6 @@
 
 
     </script>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -227,7 +221,7 @@
                     2007年2月
                 </td>
             </tr>
-            <tr>
+            <tr align="center">
                 <td>
                     SharePoint Service 3.0 开发指南
                 </td>

@@ -85,8 +85,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MailTo", "MailTo", "{1811CB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{BA6CED4B-389B-490D-A2E4-92D9F78C8161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailTo", "MailTo\MailTo.csproj", "{85868079-11F9-4867-A568-90C739E067A0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToTurn", "ToTurn\ToTurn.csproj", "{38F9EBDC-B657-475E-9D5C-B1DA8144FA05}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "jQuery", "jQuery\", "{6EB1A0E2-F15A-450D-9D7F-DC32A62522C8}"
@@ -129,6 +127,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "travelsky", "travelsky\", "
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "9639"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Asp.net中防止用户多次登录的方法2", "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\", "{FF974F0A-75AE-4FA3-A4E7-13971E30E800}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Asp.net中防止用户多次登录的方法2"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Asp.net中防止用户多次登录的方法2\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Asp.net中防止用户多次登录的方法2"
+		Release.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Asp.net中防止用户多次登录的方法2\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "13586"
 	EndProjectSection
 EndProject
 Global
@@ -251,18 +269,6 @@ Global
 		{195B1771-A4DC-42D5-8E12-703D969D056D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{195B1771-A4DC-42D5-8E12-703D969D056D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{195B1771-A4DC-42D5-8E12-703D969D056D}.Release|x86.ActiveCfg = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|.NET.ActiveCfg = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{85868079-11F9-4867-A568-90C739E067A0}.Release|x86.ActiveCfg = Release|Any CPU
 		{38F9EBDC-B657-475E-9D5C-B1DA8144FA05}.Debug|.NET.ActiveCfg = Debug|x86
 		{38F9EBDC-B657-475E-9D5C-B1DA8144FA05}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{38F9EBDC-B657-475E-9D5C-B1DA8144FA05}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
@@ -311,6 +317,18 @@ Global
 		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|x86.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,7 +337,6 @@ Global
 		{02038233-9F87-4507-82BC-942BE15646FF} = {1B994F9A-654E-4006-B822-7C08A3FDFABA}
 		{B82604F4-86D5-4DDE-BD0E-6D4C0F17EFD1} = {60734165-5D3D-44F4-B72C-4071253872F9}
 		{2A537FB0-FE06-4EF1-897A-0C8D8DD972BB} = {D4147807-0333-4E98-9417-D1AD9E20DC17}
-		{85868079-11F9-4867-A568-90C739E067A0} = {1811CBC3-A8F0-4D12-92F4-92403DAB9897}
 		{38F9EBDC-B657-475E-9D5C-B1DA8144FA05} = {BA6CED4B-389B-490D-A2E4-92D9F78C8161}
 	EndGlobalSection
 EndGlobal

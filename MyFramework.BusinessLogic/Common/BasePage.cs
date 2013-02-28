@@ -181,6 +181,7 @@ namespace MyFramework.BusinessLogic.Common
         private void BasePage_Load(object sender, System.EventArgs e)
         {
 
+
         }
         protected virtual void HandlePageError(object sender, System.EventArgs e)
         {
@@ -262,6 +263,10 @@ namespace MyFramework.BusinessLogic.Common
             this.Session["ErrorMessage"] = GetExceptionMessage(toException);
             this.Session["Exception"] = toException;
             this.Session["CurrentUrl"] = this.Request.Url.PathAndQuery;
+
+            HttpCookie aa = new HttpCookie("User");
+            aa.Value = "User";
+            Response.AppendCookie(aa);
             if (this.Page.Request.Cookies["User"] == null || this.Page.Request.Cookies["User"].Value == "")
             {
                 this.Response.Write("用户已下线，请重新登陆");
@@ -483,7 +488,7 @@ namespace MyFramework.BusinessLogic.Common
 
 
     public interface IPageBeginControl
-    {      
+    {
         string PageCaption { get; set; }
         string InsertUrl { get; set; }
         bool IsOpen { get; set; }

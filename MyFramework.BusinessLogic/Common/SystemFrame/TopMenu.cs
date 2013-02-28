@@ -183,7 +183,12 @@ namespace MyFramework.BusinessLogic.Common.SystemFrame
 
             lsText = "<TABLE>";
             lsText += "<TR>";
-
+            lsText += "<TD class=\"bmsMainMenuitem\">";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_black.gif\" border=\"0\" style=\"height:10px;width:1px;\"/>";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:8px;width:4px;\" />";
+            lsText += "<a href=\"/" + AppDir + "/ test \"><Span class=\"\">test</span></a>";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:1px;width:9px;\" />";
+            lsText += "</TD>";
             foreach (Menuitem loItem in loMenuStructure.TopMenuitems)
             {
                 lsText += "<TD class=\"bmsMainMenuitem\">";

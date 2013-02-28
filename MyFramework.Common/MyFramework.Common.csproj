@@ -54,11 +54,10 @@
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\zjy.Commons\zjy.Common\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\MyFramework\ExternalDll\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp, Version=5.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\zjy.Commons\zjy.Common\bin\Debug\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp">
+      <HintPath>..\MyFramework\ExternalDll\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Conversion.v3.5" />
     <Reference Include="System" />
