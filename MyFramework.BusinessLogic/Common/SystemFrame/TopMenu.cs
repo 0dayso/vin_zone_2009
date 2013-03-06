@@ -176,8 +176,8 @@ namespace MyFramework.BusinessLogic.Common.SystemFrame
 
         protected void GenMenus()
         {
-            MenuStructure loMenuStructure = (MenuStructure)Page.Session["MenuStructure"];
-            if (loMenuStructure == null) return;
+            //MenuStructure loMenuStructure = (MenuStructure)Page.Session["MenuStructure"];
+            //if (loMenuStructure == null) return;
 
             string lsText;
 
@@ -189,15 +189,23 @@ namespace MyFramework.BusinessLogic.Common.SystemFrame
             lsText += "<a href=\"/" + AppDir + "/ test \"><Span class=\"\">test</span></a>";
             lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:1px;width:9px;\" />";
             lsText += "</TD>";
-            foreach (Menuitem loItem in loMenuStructure.TopMenuitems)
-            {
-                lsText += "<TD class=\"bmsMainMenuitem\">";
-                lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_black.gif\" border=\"0\" style=\"height:10px;width:1px;\"/>";
-                lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:8px;width:4px;\" />";
-                lsText += "<a href=\"/" + AppDir + "/" + BasePage.AppendQueryString(loItem.HyperLink,"") + "\"><Span class=\"\">" + loItem.Caption + "</span></a>";
-                lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:1px;width:9px;\" />";
-                lsText += "</TD>";
-            }
+            lsText += "<TD class=\"bmsMainMenuitem\">";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_black.gif\" border=\"0\" style=\"height:10px;width:1px;\"/>";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:8px;width:4px;\" />";
+            lsText += "<a href=\"/" + AppDir + "/ test \"><Span class=\"\">top menu2</span></a>";
+            lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:1px;width:9px;\" />";
+            lsText += "</TD>";
+
+         
+            //foreach (Menuitem loItem in loMenuStructure.TopMenuitems)
+            //{
+            //    lsText += "<TD class=\"bmsMainMenuitem\">";
+            //    lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_black.gif\" border=\"0\" style=\"height:10px;width:1px;\"/>";
+            //    lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:8px;width:4px;\" />";
+            //    lsText += "<a href=\"/" + AppDir + "/" + BasePage.AppendQueryString(loItem.HyperLink,"") + "\"><Span class=\"\">" + loItem.Caption + "</span></a>";
+            //    lsText += "<IMG src=\"/" + AppDir + "/SystemFrame/Images/ocd_blank.gif\" border=\"0\" style=\"height:1px;width:9px;\" />";
+            //    lsText += "</TD>";
+            //}
             lsText += "</TR>";
             lsText += "</TABLE>";
 

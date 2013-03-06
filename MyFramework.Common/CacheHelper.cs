@@ -2,6 +2,8 @@
 using System.Web;
 using System.Collections;
 
+using System.Web.Caching;
+
 public class CacheHelper
 {
     /// <summary>
@@ -10,6 +12,7 @@ public class CacheHelper
     /// <param name="CacheKey">键</param>
     public static object GetCache(string CacheKey)
     {
+
         System.Web.Caching.Cache objCache = HttpRuntime.Cache;
         return objCache[CacheKey];
     }
@@ -39,6 +42,21 @@ public class CacheHelper
     {
         System.Web.Caching.Cache objCache = HttpRuntime.Cache;
         objCache.Insert(CacheKey, objObject, null, absoluteExpiration, slidingExpiration);
+    }
+
+    /// <summary>
+    ///  延迟操作
+    /// </summary>
+    public static void SetCacheCallback(string CacheKey, object objObject)
+    {
+        Cache objCache = HttpRuntime.Cache;
+        objCache.Insert(CacheKey, objObject, null, Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(10.0), CacheItemPriority.NotRemovable, RemovedCallback);
+    }
+
+    static void RemovedCallback(string key, object value, CacheItemRemovedReason reason)
+    {
+        Cache objCache = HttpRuntime.Cache;
+        objCache.Insert("finallyChannge", value + "finally change");
     }
 
     /// <summary>

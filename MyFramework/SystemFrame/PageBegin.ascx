@@ -50,7 +50,7 @@
 </script>
 <iframe id="ifrmConverPanel" style="z-index: 10000; position: absolute; display: none;
     left: 18px; width: 101px; top: 2px; height: 25px;"></iframe>
-<div id="DivCtl" style="z-index: 10001; position: absolute; display: none; display: none"
+<div id="DivCtl" style="z-index: 10001; position: absolute; display: none;"
     onmouseleave="displayControlPanel(false,document.getElementById('ctlPanel'))">
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="120">
         <tr>
@@ -126,7 +126,11 @@
             </td>
         </tr>
     </table>
-</div>
+   
+</div> <table>
+    <tr>
+    <td class="bmsMainMenuitem">topMenu</td><td>topMenu</td>
+    </tr></table>
 <table id="t1" width="100%" cellspacing="0" cellpadding="0" style="overflow: hidden"
     align="center" border="0">
     <tr id="tr1" width="100%" style="overflow: hidden">

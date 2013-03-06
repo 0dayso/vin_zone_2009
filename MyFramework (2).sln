@@ -25,11 +25,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyFramework", "MyFramework\
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "8266"
+		VWDPort = "48532"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.BLL", "MyFramework.BusinessLogic\MyFramework.BLL.csproj", "{0D21683F-F1CC-42E4-8669-37B5491FBD28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.BusinessLogic.Common", "MyFramework.BusinessLogic\MyFramework.BusinessLogic.Common.csproj", "{0D21683F-F1CC-42E4-8669-37B5491FBD28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.DAL", "MyFramework.DAL\MyFramework.DAL.csproj", "{C75A217A-9FBA-4579-AB7B-D63042482B39}"
 EndProject
@@ -81,8 +81,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.Component", "BS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.Common", "MyFramework.Common\MyFramework.Common.csproj", "{195B1771-A4DC-42D5-8E12-703D969D056D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MailTo", "MailTo", "{1811CBC3-A8F0-4D12-92F4-92403DAB9897}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{BA6CED4B-389B-490D-A2E4-92D9F78C8161}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToTurn", "ToTurn\ToTurn.csproj", "{38F9EBDC-B657-475E-9D5C-B1DA8144FA05}"
@@ -108,46 +106,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "jQuery", "jQuery\", "{6EB1A
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.WebAppService", "WebAppService\MyFramework.WebAppService.csproj", "{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "travelsky", "travelsky\", "{B66261FE-8497-4890-BEB6-8D63FBB6B957}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/travelsky"
-		Debug.AspNetCompiler.PhysicalPath = "travelsky\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\travelsky\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/travelsky"
-		Release.AspNetCompiler.PhysicalPath = "travelsky\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\travelsky\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "9639"
-	EndProjectSection
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Asp.net中防止用户多次登录的方法2", "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\", "{FF974F0A-75AE-4FA3-A4E7-13971E30E800}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/Asp.net中防止用户多次登录的方法2"
-		Debug.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Asp.net中防止用户多次登录的方法2\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/Asp.net中防止用户多次登录的方法2"
-		Release.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\新建文件夹\Asp.net中防止用户多次登录的方法2\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Asp.net中防止用户多次登录的方法2\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "13586"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -305,30 +263,6 @@ Global
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|x86.ActiveCfg = Release|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|.NET.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B66261FE-8497-4890-BEB6-8D63FBB6B957}.Release|x86.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|.NET.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FF974F0A-75AE-4FA3-A4E7-13971E30E800}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

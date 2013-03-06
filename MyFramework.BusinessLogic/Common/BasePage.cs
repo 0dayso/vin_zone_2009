@@ -4,6 +4,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace MyFramework.BusinessLogic.Common
 {
@@ -23,6 +25,11 @@ namespace MyFramework.BusinessLogic.Common
         protected IPageBeginControl moPageBeginControl;
         protected NameObjectCollection moSharedInfo = null;
         private bool mbShowTabHeader = true;
+        /// <summary>
+        /// 是否强制下线
+        /// </summary>
+        protected bool isForce = false;
+        protected string LoingOutMessage = string.Empty;
         public UserSession UserSession
         {
             get
@@ -110,9 +117,6 @@ namespace MyFramework.BusinessLogic.Common
             this.moPageBeginControl.PageCaption = this.msPageCaption;
             this.moPageBeginControl.IsShowPageHeader = this.IsShowPageHeader;
             this.Controls.Add(child);
-
-
-
         }
         protected virtual string GetPageBeginControlStr()
         {
@@ -357,6 +361,57 @@ namespace MyFramework.BusinessLogic.Common
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
+            // session   同用户多次登录验证
+            //Hashtable hOnline = (Hashtable)Application["Online"];
+            //if (hOnline != null)
+            //{
+            //    IDictionaryEnumerator idE = hOnline.GetEnumerator();
+
+            //    while (idE.MoveNext())
+            //    {
+            //        if (idE.Key != null && idE.Key.ToString().Equals(Session.SessionID))
+            //        {
+            //            //already login
+            //            if (idE.Value != null && "XXXXXX".Equals(idE.Value.ToString()))
+            //            {
+            //                hOnline.Remove(Session.SessionID);
+            //                Application.Lock();
+            //                Application["Online"] = hOnline;
+            //                Application.UnLock();
+            //                isLogin = true;
+            //                MessageBox("你的帐号已在别处登陆，你被强迫下线！", this.Page);
+            //            }
+            //            else
+            //            {
+            //                isLogin = true;
+            //            }
+            //            break;
+            //        }
+            //    }
+            //}
+
+            // cookie 同用户多次登录验证
+            //对登录用户进行页面访问验证
+            if (Session["onlineUserID"] != null && this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])] != null)
+            {
+                /* 获取客户端的用户在线标识Guid
+                 * 如果标识Guid与服务端不一致,则重定向到重复登录页面
+                 */
+
+                string m_strUserOnlineID = this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])].Value;//  .GetCookie("UserOnlineID");
+                if (!string.IsNullOrEmpty(m_strUserOnlineID))
+                {
+                    Dictionary<string, string> userlist = Application["OnlineUserList"] as Dictionary<string, string>;
+                    if (userlist != null && m_strUserOnlineID != userlist[Convert.ToString(Session["onlineUserID"])])
+                    {
+                        //MessageBox("你的帐号已在别处登陆，你被强迫下线！", this.Page);
+                        //MessageBox("你的帐号已在别处登陆，你被强迫下线！", this.Page, "Login.aspx");
+                        isForce = true;
+
+                    }
+                }
+                /******** End *******/
+            }
         }
         protected override void CreateChildControls()
         {
@@ -398,10 +453,21 @@ namespace MyFramework.BusinessLogic.Common
         public static void MessageBox(string str_Message, Page page)
         {
             str_Message = str_Message.Replace("'", "‘").Replace(";", "；").Replace("\r\n", "\\n").Replace("\r", "").Replace("\n", "<br>");//过滤掉特殊字符
-
             string strScript = "<script>alert('" + str_Message + "');</script>";
-            page.RegisterStartupScript("", strScript);
-
+            page.ClientScript.RegisterStartupScript(page.GetType(), "alertMessage", strScript);
+        }
+        /// <summary>
+        /// 弹出客户端消息
+        /// </summary>
+        /// <param name="str_Message">需要显示的消息</param>
+        /// <param name="page">当前页对象</param>
+        /// <param name="url">跳转页面的url</param>
+        public static void MessageBox(string str_Message, Page page, string url)
+        {
+            str_Message = str_Message.Replace("'", "‘").Replace(";", "；").Replace("\r\n", "\\n").Replace("\r", "").Replace("\n", "<br>");//过滤掉特殊字符
+            url = url.Replace("'", "‘").Replace(";", "；").Replace("\r\n", "\\n").Replace("\r", "").Replace("\n", "<br>");//过滤掉特殊字符
+            string strScript = "<script>alert('" + str_Message + "');window.location.href ='" + url + "';</script>";
+            page.ClientScript.RegisterStartupScript(page.GetType(), "alertMessage", strScript);
         }
 
 

@@ -17,6 +17,16 @@
         <br />
         <br />
         <br />
+        延迟合并写入<br />
+        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="changeValue" />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="BtnValidate" runat="server" Text="validate the change " 
+            onclick="BtnValidate_Click" />
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <br />

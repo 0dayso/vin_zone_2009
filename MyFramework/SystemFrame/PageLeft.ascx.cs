@@ -35,6 +35,9 @@ public partial class SystemFrame_PageLeft : System.Web.UI.UserControl
 
     }
 
+    /// <summary>
+    /// 左侧导航菜单
+    /// </summary>
     private void GetLeftMenuHtml()
     {
 
@@ -42,7 +45,7 @@ public partial class SystemFrame_PageLeft : System.Web.UI.UserControl
 
         //if (this.Page.Request.QueryString["TopMenuId"] != null)
         //{
-        string lsTopMenuId = this.Page.Request.QueryString["TopMenuId"].ToString();
+        //string lsTopMenuId = this.Page.Request.QueryString["TopMenuId"].ToString();
 
         //  Menuitem loMenuitem = loMenuStructure.FindTopMenuitem(lsTopMenuId);
         //if (loMenuitem != null)
@@ -67,7 +70,7 @@ public partial class SystemFrame_PageLeft : System.Web.UI.UserControl
         lsleftHtml += "<td  colspan=2  align=\"left\"  id=menuTitle11111   onclick=\"showsubmenu('2222222');return false;\" background='3333333' >";
         //  lsleftHtml +="<table width=\"82%\" border=\"0\" align=\"right\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>";
 
-        lsleftHtml += "&nbsp;&nbsp;&nbsp; <a href=\"#\" class=\"L_caidan01\">444444444</a></td></tr>";
+        lsleftHtml += "&nbsp;&nbsp;&nbsp; <a href=\"#\" class=\"L_caidan01\">leftMenu</a></td></tr>";
         // lsleftHtml += "</table></td></tr>";
         //if (lotempMenu.Subitems.Count != 0)
         //{
