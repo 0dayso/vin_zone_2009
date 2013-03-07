@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using MyFramework.BusinessLogic.Common;
-using System.Data.OracleClient;
+
 
 public partial class ShowExceptionMessage : BasePage
 {

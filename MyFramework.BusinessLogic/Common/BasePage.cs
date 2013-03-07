@@ -398,11 +398,11 @@ namespace MyFramework.BusinessLogic.Common
                  * 如果标识Guid与服务端不一致,则重定向到重复登录页面
                  */
 
-                string m_strUserOnlineID = this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])].Value;//  .GetCookie("UserOnlineID");
+                string m_strUserOnlineID = this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])].Value.Split(',')[0];//  .GetCookie("UserOnlineID");
                 if (!string.IsNullOrEmpty(m_strUserOnlineID))
                 {
                     Dictionary<string, string> userlist = Application["OnlineUserList"] as Dictionary<string, string>;
-                    if (userlist != null && m_strUserOnlineID != userlist[Convert.ToString(Session["onlineUserID"])])
+                    if (userlist != null && m_strUserOnlineID != userlist[Convert.ToString(Session["onlineUserID"])].Split(',')[0])
                     {
                         //MessageBox("你的帐号已在别处登陆，你被强迫下线！", this.Page);
                         //MessageBox("你的帐号已在别处登陆，你被强迫下线！", this.Page, "Login.aspx");

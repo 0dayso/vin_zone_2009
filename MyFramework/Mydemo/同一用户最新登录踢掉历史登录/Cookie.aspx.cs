@@ -11,7 +11,7 @@ public partial class Mydemo_同一用户最新登录踢掉历史登录_Cookie : 
     protected void Page_Load(object sender, EventArgs e)
     {
         this.LitLoginMessage.Text = "welcome : " + Convert.ToString(Session["onlineUserID"]);
-        var strCookie = this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])] == null ? "无 cookie" : this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])].Value;
+        var strCookie = this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])] == null ? "无 cookie" : this.Page.Request.Cookies[Convert.ToString(Session["onlineUserID"])].Value.Split(',')[0];
         this.LitLoginMessage.Text += "<br/> cookie :" + strCookie;
         if (isForce)
         {

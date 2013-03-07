@@ -12,13 +12,13 @@ public partial class Mydemo_同一用户最新登录踢掉历史登录_Online : 
     {
         Dictionary<string, string>
             userlist = Application["OnlineUserList"] as Dictionary<string, string>;
-        this.LitCookie.Text = "已登录帐号   cookie :" + userlist[Convert.ToString(Session["onlineUserID"])];
+        this.LitCookie.Text = "登录时间 :" + userlist[Convert.ToString(Session["onlineUserID"])].Split(',')[0];
 
     }
 
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
-        string m_strUserOnlineID = Guid.NewGuid().ToString();
+        string m_strUserOnlineID = DateTime.Now.ToString() + "," + Session.SessionID;// Guid.NewGuid().ToString();
 
         Dictionary<string, string>
             userlist = Application["OnlineUserList"] as Dictionary<string, string>;

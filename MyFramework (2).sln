@@ -10,7 +10,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyFramework", "MyFramework\", "{2D35A6F6-8661-4AC7-8C1B-C4E89E3C5880}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{549D7ECD-7891-44F5-8AD9-0994608EA5FF}|Pager.dll;{0D21683F-F1CC-42E4-8669-37B5491FBD28}|MyFramework.BusinessLogic.dll;{3864E3AA-DC14-4126-A199-03445FC70391}|MyFramework.Component.dll;{195B1771-A4DC-42D5-8E12-703D969D056D}|MyFramework.Common.dll;{C75A217A-9FBA-4579-AB7B-D63042482B39}|MyFramework.DAL.dll;{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}|WebAppService.dll;"
+		ProjectReferences = "{549D7ECD-7891-44F5-8AD9-0994608EA5FF}|Pager.dll;{3864E3AA-DC14-4126-A199-03445FC70391}|MyFramework.Component.dll;{195B1771-A4DC-42D5-8E12-703D969D056D}|MyFramework.Common.dll;{C75A217A-9FBA-4579-AB7B-D63042482B39}|MyFramework.DAL.dll;{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}|MyFramework.WebAppService.dll;{0D21683F-F1CC-42E4-8669-37B5491FBD28}|MyFramework.BusinessLogic.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/MyFramework"
 		Debug.AspNetCompiler.PhysicalPath = "MyFramework\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\MyFramework\"

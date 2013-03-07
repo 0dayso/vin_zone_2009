@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PageBegin.ascx.cs" Inherits="SystemFrame_PageBegin" %>
 <%@ Register Src="PageHeader.ascx" TagName="PageHeader" TagPrefix="uc2" %>
 <%@ Register Src="PageLeft.ascx" TagName="PageLeft" TagPrefix="uc1" %>
-<%@ Register Assembly="MyFramework.BusinessLogic" Namespace="MyFramework.BusinessLogic.Common.SystemFrame"
+<%@ Register Assembly="MyFramework.BusinessLogic.Common" Namespace="MyFramework.BusinessLogic.Common.SystemFrame"
     TagPrefix="cc1" %>
 <script language="javascript">
     //得到当前对象的left和Top 值
