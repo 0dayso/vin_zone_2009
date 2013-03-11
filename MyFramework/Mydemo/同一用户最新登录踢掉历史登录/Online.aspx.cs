@@ -8,6 +8,7 @@ using MyFramework.BusinessLogic.Common;
 
 public partial class Mydemo_同一用户最新登录踢掉历史登录_Online : BasePage
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         Dictionary<string, string>

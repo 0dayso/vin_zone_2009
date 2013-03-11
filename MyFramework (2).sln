@@ -107,6 +107,46 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "jQuery", "jQuery\", "{6EB1A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework.WebAppService", "WebAppService\MyFramework.WebAppService.csproj", "{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Gridview", "C:\Users\Administrator\Desktop\Gridview实例\Gridview\", "{4B8E14CD-04EB-4247-A566-C5341E57CE6C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Gridview"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\Gridview实例\Gridview\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Gridview\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Gridview"
+		Release.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\Gridview实例\Gridview\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Gridview\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "15777"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebLog", "C:\Users\Administrator\Desktop\使用log4net记录日志\代码\WebLog\", "{8D25A7A3-2F78-444C-A57A-524CA51505E7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/WebLog"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\使用log4net记录日志\代码\WebLog\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebLog\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebLog"
+		Release.AspNetCompiler.PhysicalPath = "C:\Users\Administrator\Desktop\使用log4net记录日志\代码\WebLog\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebLog\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "20078"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -263,6 +303,30 @@ Global
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3E6B2189-0C14-4D63-AE8C-38353F4B5E8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4B8E14CD-04EB-4247-A566-C5341E57CE6C}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D25A7A3-2F78-444C-A57A-524CA51505E7}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

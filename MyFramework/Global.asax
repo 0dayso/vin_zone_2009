@@ -41,7 +41,7 @@
 
         Dictionary<string, string> userlist = (Dictionary<string, string>)Application["OnlineUserList"];
         //userlist.Where<Dictionary<string,string>>(x=>x.ke
-
+        if (userlist == null) return;
         var list = from user in userlist
                    where user.Value.Contains(Session.SessionID)
                    select user;
